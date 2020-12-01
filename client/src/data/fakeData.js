@@ -1,16 +1,16 @@
 const informationStaticData = {
-  preHospitalInitialCardiacRhythm: "VF",
-  cardiacArrestTime: "20201113 15:04:29",
-  arriveTime: "20201113 15:04:29",
+  "병원 전 초기 심전도 리듬": "VF",
+  "심정지 발생 시간": "20201113 15:04:29",
+  "119 도착시간": "20201113 15:04:29",
   witnessed: "Y",
   bystanderCPR: "Y",
-  accurPlace: "병원 내",
+  "발생 장소": "병원 내",
   Airway: "ETI",
-  postHospitalCardiacRhythm: "VF",
+  "병원 도착 후 심전도 리듬": "VF",
 };
 
 const informationDynamicData = {
-  defibrillation: 3,
+  재세동: 3,
   nonSustainedROSC: 1,
   epinephrine: "2A",
   amiodarone: "300mg",

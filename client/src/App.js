@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Layout } from "antd";
 import Process from "./components/Process";
+import Information from "./components/Information";
+import BodyImage from "./components/BodyImage";
+import CenterTop from "./components/CenterTop";
+import CenterBottom from "./components/CenterBottom";
 import "./App.css";
 
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {};
   }
 
@@ -25,7 +29,21 @@ class App extends Component {
           <div style={{}}>2020.11.27 15:04:03</div>
         </Header>
         <Content style={{ backgroundColor: "white" }}>
-          <Process />
+          <div style={{ display: "flex" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", margin: 10 }}
+            >
+              <Information />
+              <BodyImage />
+            </div>
+            <div
+              style={{ display: "flex", flexDirection: "column", margin: 10 }}
+            >
+              <CenterTop />
+              <CenterBottom />
+            </div>
+            <Process />
+          </div>
         </Content>
         <Footer style={{ textAlign: "center", backgroundColor: "#D5DFE1" }}>
           SHL ©2020
