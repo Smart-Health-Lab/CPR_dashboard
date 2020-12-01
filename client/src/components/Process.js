@@ -9,31 +9,36 @@ class Process extends Component {
     this.state = {
       browserHeight: window.innerHeight,
     };
-    this.myRef = React.createRef();
+    this.scrollRef = React.createRef();
   }
 
   componentDidMount() {
-    // console.log(this.myRef.current);
+    // console.log(this.myRef.current.offsetTop);
+    // console.log(this.myRef.current.offsetHeight);
+    // window.scrollTo(this.myRef.current.offsetHeight, 0);
+    // this.myRef.current.scrollIntoView();
+    this.scrollToBottom();
+    console.log(this.scrollRef.current.scrollTop);
+    console.log(this.scrollRef.current.scrollHeight);
   }
 
-  handleScroll = () => {
-    window.scrollTo({
-      bottom: this.myRef.current.scrollIntoView({ behavior: "smooth" }),
-    });
+  scrollToBottom = () => {
+    this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
   };
 
   render() {
-    console.log(this.myRef.current);
-
     return (
       <div
-        style={{ overflow: "scroll", height: this.state.browserHeight - 800 }}
-        ref={this.myRef}
+        style={{ overflow: "scroll", height: this.state.browserHeight - 200 }}
+        ref={this.scrollRef}
       >
         {logData.map((curr, idx, arr) => {
-          return <ChildProcess time={curr.time} content={curr.content} />;
+          return (
+            <ChildProcess key={idx} time={curr.time} content={curr.content} />
+          );
         })}
       </div>
+
       // <List
       //   itemLayout="horizontal"
       //   ref={this.myRef}
