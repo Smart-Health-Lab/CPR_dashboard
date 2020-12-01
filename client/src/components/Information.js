@@ -39,13 +39,15 @@ class Information extends Component {
         {Object.entries(informationStaticData).map((curr, idx, arr) => {
           return (
             <tr style={{ border: "1px solid grey" }}>
-              <td style={{ border: "1px solid grey" }}>
+              <td
+                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
+              >
                 <div
                   style={{
                     marginLeft: 5,
                     marginTop: 10,
                     marginRight: 5,
-                    width: "15vw",
+                    width: "13vw",
                   }}
                 >
                   {curr[0]}
@@ -57,7 +59,7 @@ class Information extends Component {
                     marginLeft: 5,
                     marginTop: 10,
                     marginRight: 5,
-                    width: "15vw",
+                    width: "13vw",
                   }}
                 >
                   {curr[1]}
@@ -69,13 +71,15 @@ class Information extends Component {
         {Object.entries(informationDynamicData).map((curr, idx, arr) => {
           return (
             <tr style={{ border: "1px solid grey" }}>
-              <td style={{ border: "1px solid grey" }}>
+              <td
+                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
+              >
                 <div
                   style={{
                     marginLeft: 5,
                     marginTop: 10,
                     marginRight: 5,
-                    width: "15vw",
+                    width: "13vw",
                   }}
                 >
                   {curr[0]}
@@ -87,7 +91,7 @@ class Information extends Component {
                     marginLeft: 5,
                     marginTop: 10,
                     marginRight: 5,
-                    width: "15vw",
+                    width: "13vw",
                   }}
                 >
                   {curr[1]}
