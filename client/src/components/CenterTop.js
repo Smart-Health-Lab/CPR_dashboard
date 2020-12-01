@@ -17,7 +17,7 @@ class CenterTop extends Component {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-
+            marginRight: 5,
             width: window.innerWidth / 3 / 2,
             backgroundColor: "#DFECEE",
           }}
