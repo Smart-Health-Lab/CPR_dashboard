@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Layout } from "antd";
+import Clock from "react-live-clock";
+import Moment from "react-moment";
 import Process from "./components/Process";
 import Information from "./components/Information";
 import BodyImage from "./components/BodyImage";
@@ -25,8 +27,12 @@ class App extends Component {
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div style={{}}>환자번호 / 이름 / 나이 / 성별 </div>
-          <div style={{}}>2020.11.27 15:04:03</div>
+          <div style={{ fontSize: 15 }}>환자번호 / 이름 / 나이 / 성별 </div>
+          <div style={{ fontSize: 15 }}>
+            <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
+            {/* <Clock /> */}
+          </div>
+          {/* <div style={{}}>2020.11.27 15:04:03</div> */}
         </Header>
         <Content style={{ backgroundColor: "white" }}>
           <div style={{ display: "flex" }}>

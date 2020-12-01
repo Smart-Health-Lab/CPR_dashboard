@@ -18,8 +18,8 @@ class Process extends Component {
     // window.scrollTo(this.myRef.current.offsetHeight, 0);
     // this.myRef.current.scrollIntoView();
     this.scrollToBottom();
-    console.log(this.scrollRef.current.scrollTop);
-    console.log(this.scrollRef.current.scrollHeight);
+    // console.log(this.scrollRef.current.scrollTop);
+    // console.log(this.scrollRef.current.scrollHeight);
   }
 
   scrollToBottom = () => {
@@ -27,6 +27,8 @@ class Process extends Component {
   };
 
   render() {
+    console.log(Date());
+
     return (
       <div
         style={{ overflow: "scroll", height: this.state.browserHeight - 200 }}
