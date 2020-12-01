@@ -6,7 +6,11 @@ class BodyImage extends Component {
     return (
       <img
         src={bodyImage}
-        style={{ width: "30vw", height: "30vw", marginTop: 40 }}
+        style={{
+          width: "25vw",
+          height: window.innerHeight / 2 - 100,
+          marginTop: 40,
+        }}
       />
     );
   }

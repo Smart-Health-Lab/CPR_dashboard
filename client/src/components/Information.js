@@ -35,7 +35,12 @@ class Information extends Component {
     // console.log(Object.entries(informationStaticData));
 
     return (
-      <table style={{ border: "1px solid grey" }}>
+      <table
+        style={{
+          border: "1px solid grey",
+          height: window.innerHeight / 2 - 100,
+        }}
+      >
         {Object.entries(informationStaticData).map((curr, idx, arr) => {
           return (
             <tr style={{ border: "1px solid grey" }}>

@@ -6,9 +6,7 @@ import { logData } from "../data/fakeData";
 class Process extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      browserHeight: window.innerHeight,
-    };
+    this.state = {};
     this.scrollRef = React.createRef();
   }
 
@@ -31,7 +29,7 @@ class Process extends Component {
 
     return (
       <div
-        style={{ overflow: "scroll", height: this.state.browserHeight - 200 }}
+        style={{ overflow: "scroll", height: window.innerHeight - 200 }}
         ref={this.scrollRef}
       >
         {logData.map((curr, idx, arr) => {
