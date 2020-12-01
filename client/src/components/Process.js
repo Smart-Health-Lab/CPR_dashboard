@@ -29,7 +29,11 @@ class Process extends Component {
 
     return (
       <div
-        style={{ overflow: "scroll", height: window.innerHeight - 200 }}
+        style={{
+          overflow: "scroll",
+          width: window.innerWidth / 3,
+          height: window.innerHeight - 200,
+        }}
         ref={this.scrollRef}
       >
         {logData.map((curr, idx, arr) => {

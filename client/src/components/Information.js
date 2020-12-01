@@ -38,6 +38,7 @@ class Information extends Component {
       <table
         style={{
           border: "1px solid grey",
+          width: window.innerWidth / 3,
           height: window.innerHeight / 2 - 100,
         }}
       >

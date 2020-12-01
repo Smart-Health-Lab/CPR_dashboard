@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ChildProcessIcon from "../components/ChildProcessIcon";
 
 class ChildProcess extends Component {
   render() {
@@ -8,12 +9,11 @@ class ChildProcess extends Component {
           display: "flex",
           margin: 10,
           backgroundColor: "#DFECEE",
-          width: "30vw",
           padding: 10,
         }}
       >
         <div>{this.props.time}</div>
-        <div style={{ marginLeft: 10 }}>{"O"}</div>
+        <ChildProcessIcon />
         <div style={{ marginLeft: 10 }}>{this.props.content}</div>
       </div>
     );

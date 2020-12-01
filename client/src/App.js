@@ -27,8 +27,8 @@ class App extends Component {
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div style={{ fontSize: 15 }}>환자번호 / 이름 / 나이 / 성별 </div>
-          <div style={{ fontSize: 15 }}>
+          <div style={{ fontSize: 20 }}>환자번호 / 이름 / 나이 / 성별 </div>
+          <div style={{ fontSize: 20 }}>
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
             {/* <Clock /> */}
           </div>
