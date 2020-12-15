@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import io from "socket.io-client";
 import { Table, Space } from "antd";
 import { informationStaticData } from "../data/fakeData";
 import { informationDynamicData } from "../data/fakeData";
@@ -6,34 +7,23 @@ import { informationDynamicData } from "../data/fakeData";
 class Information extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      "병원 전 초기 심전도 리듬": null,
+      "심정지 발생 시간": null,
+      "119 도착시간": null,
+      witnessed: null,
+      bystanderCPR: null,
+      "발생 장소": null,
+      Airway: null,
+      "병원 도착 후 심전도 리듬": null,
+      "재세동 ": null,
+      nonSustainedROSC: null,
+      epinephrine: null,
+      amiodarone: null,
+    };
   }
 
   render() {
-    const columns = [
-      {
-        title: "",
-        dataIndex: "",
-        key: "name",
-      },
-      {
-        title: "",
-        dataIndex: "",
-        key: "content",
-      },
-    ];
-
-    const data = [];
-    for (const [key, value] of Object.entries(informationStaticData)) {
-      data.push({ [key]: value });
-    }
-
-    for (const [key, value] of Object.entries(informationDynamicData)) {
-      data.push({ [key]: value });
-    }
-
-    // console.log(Object.entries(informationStaticData));
-
     return (
       <table
         style={{
@@ -42,7 +32,39 @@ class Information extends Component {
           height: window.innerHeight / 2 - 100,
         }}
       >
-        {Object.entries(informationStaticData).map((curr, idx, arr) => {
+        {Object.entries(this.state).map((curr, idx, arr) => {
+          return (
+            <tr style={{ border: "1px solid grey" }}>
+              <td
+                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
+              >
+                <div
+                  style={{
+                    marginLeft: 5,
+                    marginTop: 10,
+                    marginRight: 5,
+                    width: "13vw",
+                  }}
+                >
+                  {curr[0]}
+                </div>
+              </td>
+              <td>
+                <div
+                  style={{
+                    marginLeft: 5,
+                    marginTop: 10,
+                    marginRight: 5,
+                    width: "13vw",
+                  }}
+                >
+                  {curr[1]}
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+        {/* {Object.entries(informationStaticData).map((curr, idx, arr) => {
           return (
             <tr style={{ border: "1px solid grey" }}>
               <td
@@ -105,7 +127,7 @@ class Information extends Component {
               </td>
             </tr>
           );
-        })}
+        })} */}
       </table>
     );
   }

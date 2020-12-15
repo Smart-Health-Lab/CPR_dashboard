@@ -31,6 +31,14 @@ const logData = [
   { time: "15:06:53", content: "가슴압박 재시작" },
   { time: "15:06:59", content: "가슴압박 중지" },
   { time: "15:07:02", content: "Defibrillation 200J" },
+  { time: "15:06:52", content: "VF" },
+  { time: "15:06:53", content: "가슴압박 재시작" },
+  { time: "15:06:59", content: "가슴압박 중지" },
+  { time: "15:07:02", content: "Defibrillation 200J" },
+  { time: "15:06:52", content: "VF" },
+  { time: "15:06:53", content: "가슴압박 재시작" },
+  { time: "15:06:59", content: "가슴압박 중지" },
+  { time: "15:07:02", content: "Defibrillation 200J" },
 ];
 
 module.exports = {
