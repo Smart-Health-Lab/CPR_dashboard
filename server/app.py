@@ -16,14 +16,13 @@ CORS(app)
 # socketIo = SocketIO(app, cors_allowed_origins="*")
 socket_io = SocketIO(app,)
 
+
 @socket_io.on("message")
 def handleMessage(msg):
-    pring(msg)
+    print(msg)
     send(msg, broadcast=True)
     return None
 
 
-
-
 if __name__ == '__main__':
-    socketIo.run(app)
+    socket_io.run(app)
