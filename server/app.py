@@ -11,10 +11,11 @@ app.debug = True
 
 app.host = 'localhost'
 
-CORS(app)
 
-# socketIo = SocketIO(app, cors_allowed_origins="*")
-socket_io = SocketIO(app,)
+# CORS(app)
+
+socket_io = SocketIO(app, cors_allowed_origins="*")
+# socket_io = SocketIO(app,)
 
 
 @socket_io.on("message")
