@@ -1,6 +1,5 @@
 from flask import Flask, request
 from flask_socketio import SocketIO, send
-from flask_cors import CORS
 
 
 app = Flask(__name__)
@@ -9,10 +8,8 @@ app.config['SECRET_KEY'] = 'cpr_dashboard_secret'
 
 app.debug = True
 
-app.host = 'localhost'
+app.host = '0.0.0.0'
 
-
-# CORS(app)
 
 socket_io = SocketIO(app, cors_allowed_origins="*")
 # socket_io = SocketIO(app,)
