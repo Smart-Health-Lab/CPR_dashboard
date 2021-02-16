@@ -7,8 +7,10 @@ class CenterTop extends Component {
       <div
         style={{
           display: "flex",
-          width: window.innerWidth / 3,
-          height: window.innerHeight / 2 - 90,
+          // width: window.innerWidth / 3,
+          width: "33vw",
+          // height: window.innerHeight / 2 - 90,
+          height: "45vh",
         }}
       >
         <div

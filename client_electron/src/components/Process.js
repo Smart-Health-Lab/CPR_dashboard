@@ -32,8 +32,10 @@ class Process extends Component {
       <div
         style={{
           overflow: "scroll",
-          width: window.innerWidth / 3,
-          height: window.innerHeight - 200,
+          // width: window.innerWidth / 3,
+          width: "33vw",
+          // height: window.innerHeight - 200,
+          height: "86vh",
         }}
         ref={this.scrollRef}
       >

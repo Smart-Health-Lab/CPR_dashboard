@@ -38,8 +38,10 @@ class Information extends Component {
       <table
         style={{
           border: "1px solid grey",
-          width: window.innerWidth / 3,
-          height: window.innerHeight / 2 - 85,
+          // width: window.innerWidth / 3,
+          width: "33vw",
+          // height: window.innerHeight / 2 - 85,
+          height: "45vh",
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {

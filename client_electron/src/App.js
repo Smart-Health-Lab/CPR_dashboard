@@ -23,6 +23,8 @@ class App extends Component {
         <Header
           style={{
             display: "flex",
+            height: "7vh",
+            width: "100vw",
             justifyContent: "space-between",
             backgroundColor: "#D5DFE1",
           }}
@@ -34,7 +36,7 @@ class App extends Component {
           </div>
           {/* <div style={{}}>2020.11.27 15:04:03</div> */}
         </Header>
-        <Content style={{ backgroundColor: "white" }}>
+        <Content style={{ backgroundColor: "white", height: "87vh" }}>
           <div style={{ display: "flex" }}>
             <div
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
@@ -53,12 +55,15 @@ class App extends Component {
         </Content>
         <Footer
           style={{
-            height: "1vh",
+            display: "flex",
+            justifyContent: "center",
+            height: "6vh",
+            width: "100vw",
             textAlign: "center",
             backgroundColor: "#D5DFE1",
           }}
         >
-          SHL ©2020
+          <div>SHL ©2020</div>
         </Footer>
       </Layout>
     );
