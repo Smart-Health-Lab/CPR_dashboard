@@ -3,10 +3,15 @@ import { List } from "antd";
 import ChildProcess from "./ChildProcess";
 import { logData } from "../data/fakeData";
 
+// let endPoint = "http://localhost:3002";
+// let socket = io.connect(endPoint);
+
 class Process extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      processData: [],
+    };
     this.scrollRef = React.createRef();
   }
 
@@ -20,13 +25,22 @@ class Process extends Component {
     // console.log(this.scrollRef.current.scrollHeight);
   }
 
+  componentWillMount() {
+    // if (this.props.processData.length > 0) {
+    //   this.scrollToBottom();
+    // }
+  }
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   scrollToBottom = () => {
     this.scrollRef.current.scrollTop = this.scrollRef.current.scrollHeight;
   };
 
   render() {
-    console.log(Date());
-    console.log(window.innerWidth);
+    // console.log(Date());
+    console.log(this.props.processData.length);
 
     return (
       <div
@@ -39,7 +53,12 @@ class Process extends Component {
         }}
         ref={this.scrollRef}
       >
-        {logData.map((curr, idx, arr) => {
+        {/* {logData.map((curr, idx, arr) => {
+          return (
+            <ChildProcess key={idx} time={curr.time} content={curr.content} />
+          );
+        })} */}
+        {this.props.processData.map((curr, idx, arr) => {
           return (
             <ChildProcess key={idx} time={curr.time} content={curr.content} />
           );

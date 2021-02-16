@@ -3,8 +3,10 @@ import io, { Socket } from "socket.io-client";
 import { Input, Button } from "antd";
 import "./App.css";
 
-// let endPoint = "http://localhost:3002";
-// let socket = io.connect(endPoint);
+let endPoint = "http://localhost:3002";
+let socket = io.connect(endPoint);
+
+const testId = "SHL";
 
 class App extends Component {
   constructor(props) {
@@ -23,12 +25,16 @@ class App extends Component {
     };
   }
 
-  // informationEmit = () => {
-  //   socket.emit("information", this.state);
-  // };
-  // processEmit = (msg) => {
-  //   Socket.emit("process", { process: msg });
-  // };
+  componentWillMount() {
+    // socket.emit("roomjoin", testId);
+  }
+
+  informationEmit = () => {
+    socket.emit("information", this.state);
+  };
+  processEmit = (obj) => {
+    socket.emit("process", obj);
+  };
 
   render() {
     console.log(this.state);
@@ -129,17 +135,6 @@ class App extends Component {
                 }}
               />
             </div>
-            <div style={{ display: "flex", margin: 10 }}>
-              <Input
-                placeholder="재세동 "
-                style={{ width: "20vw", height: "5.9vh" }}
-                onChange={(text) => {
-                  this.setState({
-                    "재세동 ": text.target.value,
-                  });
-                }}
-              />
-            </div>
           </div>
           <div style={{ display: "flex", margin: 10 }}>
             <Button
@@ -161,6 +156,28 @@ class App extends Component {
                 this.processEmit();
               }}
             >
+              재세동
+            </Button>
+          </div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div style={{ margin: 20, fontSize: 15 }}>process</div>
+          <div style={{ display: "flex", margin: 10 }}>
+            <Button
+              size="large"
+              onClick={() => {
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "CPR 시작",
+                });
+              }}
+            >
               CPR 시작
             </Button>
           </div>
@@ -171,7 +188,16 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "가슴압박 중지",
+                });
               }}
             >
               가슴압박 중지
@@ -184,7 +210,16 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "가슴압박 재시작",
+                });
               }}
             >
               가슴압박 재시작
@@ -197,7 +232,16 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "nonSustainedROSC",
+                });
               }}
             >
               nonSustainedROSC
@@ -210,7 +254,16 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "epinephrine",
+                });
               }}
             >
               epinephrine
@@ -223,7 +276,16 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "amiodarone",
+                });
               }}
             >
               amiodarone

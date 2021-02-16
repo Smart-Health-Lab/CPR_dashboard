@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import io, { Socket } from "socket.io-client";
 import { Layout } from "antd";
 import Clock from "react-live-clock";
 import Moment from "react-moment";
@@ -11,13 +12,33 @@ import "./App.css";
 
 const { Header, Content, Footer } = Layout;
 
+let endPoint = "http://localhost:3002";
+let socket = io.connect(endPoint);
+
+const electronId = "SHL";
+
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      processData: [],
+    };
+  }
+
+  addProcess = () => {
+    // const { processData } = this.state;
+    socket.on("process", (obj) => {
+      this.setState({ processData: [...this.state.processData, obj] });
+    });
+  };
+
+  componentWillMount() {
+    // socket.emit("roomjoin", electronId);
+    this.addProcess();
   }
 
   render() {
+    console.log(this.state);
     return (
       <Layout style={{ height: "100%" }}>
         <Header
@@ -50,14 +71,14 @@ class App extends Component {
               <CenterTop />
               <CenterBottom />
             </div>
-            <Process />
+            <Process processData={this.state.processData} />
           </div>
         </Content>
         <Footer
           style={{
             display: "flex",
             justifyContent: "center",
-            height: "6vh",
+            height: "7vh",
             width: "100vw",
             textAlign: "center",
             backgroundColor: "#D5DFE1",
