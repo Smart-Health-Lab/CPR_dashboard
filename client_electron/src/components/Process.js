@@ -26,6 +26,7 @@ class Process extends Component {
 
   render() {
     console.log(Date());
+    console.log(window.innerWidth);
 
     return (
       <div

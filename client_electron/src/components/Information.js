@@ -27,7 +27,7 @@ class Information extends Component {
   }
 
   // componentDidMount() {
-  //   socket.on("message", (msg) => {
+  //   socket.on("information", (msg) => {
   //     this.setState({ "심정지 발생 시간": msg });
   //   });
   // }
@@ -39,7 +39,7 @@ class Information extends Component {
         style={{
           border: "1px solid grey",
           width: window.innerWidth / 3,
-          height: window.innerHeight / 2 - 50,
+          height: window.innerHeight / 2 - 85,
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {

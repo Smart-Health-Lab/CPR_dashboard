@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <Layout style={{ minHeight: "100vh" }}>
+      <Layout style={{ height: "100%" }}>
         <Header
           style={{
             display: "flex",
@@ -51,7 +51,13 @@ class App extends Component {
             <Process />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center", backgroundColor: "#D5DFE1" }}>
+        <Footer
+          style={{
+            height: "1vh",
+            textAlign: "center",
+            backgroundColor: "#D5DFE1",
+          }}
+        >
           SHL ©2020
         </Footer>
       </Layout>

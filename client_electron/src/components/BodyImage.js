@@ -9,7 +9,7 @@ class BodyImage extends Component {
         style={{
           width: "25vw",
           width: window.innerWidth / 3,
-          height: window.innerHeight / 2 - 100,
+          height: window.innerHeight / 2 - 85,
           marginTop: 40,
         }}
       />

@@ -9,7 +9,7 @@ class CenterBottom extends Component {
           justifyContent: "center",
           alignItems: "center",
           width: window.innerWidth / 3,
-          height: window.innerHeight / 2 - 100,
+          height: window.innerHeight / 2 - 90,
         }}
       >
         <div>CenterBottom component</div>
