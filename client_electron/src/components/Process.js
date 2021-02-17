@@ -40,7 +40,7 @@ class Process extends Component {
 
   render() {
     // console.log(Date());
-    console.log(this.props.processData.length);
+    // console.log(this.props.processData.length);
 
     return (
       <div

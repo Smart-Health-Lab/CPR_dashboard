@@ -1,14 +1,8 @@
 const app = require("express")();
 
-const cors = require("cors");
-
-// const corsOptions = {
-//   origin: "http://localhost:3002",
-//   credentials: true,
-// };
-
-//미들웨어로 cors 허용하는거는 작동 안함
-// app.use(cors(corsOptions));
+// const server = app.listen(3002, () => {
+//   console.log("Listening at port number 3002");
+// });
 
 const http = require("http").createServer(app);
 
@@ -34,7 +28,9 @@ io.on("connection", (socket) => {
   //   });
 
   socket.on("process", (obj) => {
-    socket.emit("process", obj);
+    console.log("process => ", obj);
+
+    io.emit("process", obj);
   });
 
   socket.on("disconnect", () => {

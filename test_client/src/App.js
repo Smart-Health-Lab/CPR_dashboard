@@ -6,7 +6,7 @@ import "./App.css";
 let endPoint = "http://localhost:3002";
 let socket = io.connect(endPoint);
 
-const testId = "SHL";
+// const testId = "SHL";
 
 class App extends Component {
   constructor(props) {
@@ -153,7 +153,17 @@ class App extends Component {
             <Button
               size="large"
               onClick={() => {
-                this.processEmit();
+                const date = new Date();
+                this.processEmit({
+                  originalTime: date,
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "재세동",
+                });
               }}
             >
               재세동
@@ -168,6 +178,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +
@@ -190,6 +201,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +
@@ -212,6 +224,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +
@@ -234,6 +247,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +
@@ -256,6 +270,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +
@@ -278,6 +293,7 @@ class App extends Component {
               onClick={() => {
                 const date = new Date();
                 this.processEmit({
+                  originalTime: date,
                   time:
                     date.getHours() +
                     ":" +

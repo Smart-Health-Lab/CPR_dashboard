@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { logData } from "../data/fakeData";
 
 class CenterTop extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startTime: null,
+    };
+  }
+
+  componentDidUpdate() {
+    // this.setState({ startTime: this.props.startTime });
+  }
+
   render() {
     return (
       <div
@@ -25,7 +36,7 @@ class CenterTop extends Component {
           }}
         >
           <div style={{ fontSize: 30 }}>시작 시간</div>
-          <div style={{ fontSize: 30 }}>{logData[0].time}</div>
+          <div style={{ fontSize: 30 }}>{this.state.startTime}</div>
         </div>
         <div
           style={{
@@ -38,7 +49,7 @@ class CenterTop extends Component {
           }}
         >
           <div style={{ fontSize: 30 }}>지속 시간</div>
-          <div style={{ fontSize: 30 }}>{logData[0].time}</div>
+          <div style={{ fontSize: 30 }}>{}</div>
         </div>
       </div>
     );
