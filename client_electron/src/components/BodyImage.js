@@ -7,10 +7,8 @@ class BodyImage extends Component {
       <img
         src={bodyImage}
         style={{
-          // width: window.innerWidth / 3,
           width: "33vw",
-          // height: window.innerHeight / 2 - 85,
-          height: "40vh",
+          height: "30vh",
           marginTop: 10,
         }}
       />

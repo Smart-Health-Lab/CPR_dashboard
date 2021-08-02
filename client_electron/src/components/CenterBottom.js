@@ -10,56 +10,62 @@ class CenterBottom extends Component {
     return (
       <div
         style={{
-          // width: window.innerWidth / 3,
           width: "33vw",
-          // height: window.innerHeight / 2 - 90,
-          height: "45vh",
+          height: "50vh",
           marginTop: 10,
         }}
       >
         <div
           style={{
             display: "flex",
-            height: "9vh",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#DFECEE",
           }}
         >
-          <div>CCFR(가슴압박시간 총 합/지속시간)</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              height: "9vh",
+              width: "33vw",
+            }}
+          >
+            <div>
+              <div>(image)</div>
+            </div>
+            <div>
+              <div>Epinephrine</div>
+            </div>
+          </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            height: "9vh",
-          }}
-        >
-          <div>
-            <div></div>
+        <div style={{ display: "flex", height: "20vh", width: "33vw" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              marginRight: 5,
+              height: "20vh",
+              width: "16.5vw",
+              backgroundColor: "#DFECEE",
+            }}
+          >
             <div>가슴압박 지속</div>
+            <div>02:00</div>
           </div>
-          <div>
-            <div></div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              height: "20vh",
+              width: "16.5vw",
+              backgroundColor: "#DFECEE",
+            }}
+          >
             <div>가슴압박 중지</div>
+            <div>00:00</div>
           </div>
-          <div>
-            <div></div>
-            <div>Epinephrine</div>
-          </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            height: "20vh",
-            backgroundColor: "#DFECEE",
-          }}
-        >
-          <div>가슴압박 지속</div>
-          <div>02:00</div>
         </div>
       </div>
     );

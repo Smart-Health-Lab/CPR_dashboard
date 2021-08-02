@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { logData } from "../data/fakeData";
+import Timer from "./Timer";
 
 class CenterTop extends Component {
   constructor(props) {
@@ -18,38 +19,70 @@ class CenterTop extends Component {
       <div
         style={{
           display: "flex",
-          // width: window.innerWidth / 3,
+          flexDirection: "column",
           width: "33vw",
-          // height: window.innerHeight / 2 - 90,
-          height: "45vh",
+          height: "50vh",
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginRight: 5,
-            width: window.innerWidth / 3 / 2,
-            backgroundColor: "#DFECEE",
+            height: "35vh",
           }}
         >
-          <div style={{ fontSize: 30 }}>시작 시간</div>
-          <div style={{ fontSize: 30 }}>{this.state.startTime}</div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 5,
+              width: "11vw",
+              backgroundColor: "#DFECEE",
+            }}
+          >
+            <div style={{ fontSize: 30 }}>지속 시간</div>
+            <div style={{ fontSize: 30 }}>{this.props.startTime}</div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 5,
+              width: "11vw",
+              backgroundColor: "#DFECEE",
+            }}
+          >
+            <div style={{ fontSize: 30 }}>시작 시간</div>
+            <div style={{ fontSize: 30 }}>{}</div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "11vw",
+              backgroundColor: "#DFECEE",
+            }}
+          >
+            <div style={{ fontSize: 30 }}>현재 시간</div>
+            <div style={{ fontSize: 30 }}>{}</div>
+          </div>
         </div>
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            height: "10vh",
             justifyContent: "center",
             alignItems: "center",
-            width: window.innerWidth / 3 / 2,
+            marginTop: 5,
             backgroundColor: "#DFECEE",
           }}
         >
-          <div style={{ fontSize: 30 }}>지속 시간</div>
-          <div style={{ fontSize: 30 }}>{}</div>
+          <div>CCFR(가슴압박시간 총 합/지속시간)</div>
         </div>
       </div>
     );

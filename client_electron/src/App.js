@@ -21,8 +21,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      환자번호: null,
+      이름: null,
+      나이: null,
+      성별: null,
       processData: [],
       startTime: null,
+      staticInfo: {},
     };
   }
 
@@ -36,13 +41,26 @@ class App extends Component {
     });
   };
 
+  setStaticInfo = () => {
+    socket.on("information", (obj) => {
+      this.setState({ staticInfo: { ...obj } });
+      this.setState({
+        환자번호: obj["환자번호"],
+        이름: obj["이름"],
+        나이: obj["나이"],
+        성별: obj["성별"],
+      });
+    });
+  };
+
   componentWillMount() {
     // socket.emit("roomjoin", electronId);
     this.addProcess();
+    this.setStaticInfo();
   }
 
   render() {
-    console.log(this.state);
+    console.log("App.js 렌더링 ", this.state);
 
     return (
       <Layout style={{ height: "100%" }}>
@@ -55,7 +73,11 @@ class App extends Component {
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div style={{ fontSize: 20 }}>환자번호 / 이름 / 나이 / 성별 </div>
+          <div style={{ fontSize: 20 }}>
+            {" "}
+            {this.state["환자번호"]} / {this.state["이름"]} /{" "}
+            {this.state["나이"]} / {this.state["성별"]}{" "}
+          </div>
           <div style={{ fontSize: 20 }}>
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
             {/* <Clock /> */}
@@ -67,7 +89,7 @@ class App extends Component {
             <div
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
             >
-              <Information />
+              <Information staticInfo={this.state.staticInfo} />
               <BodyImage />
             </div>
             <div

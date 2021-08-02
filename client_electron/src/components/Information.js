@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import io from "socket.io-client";
 import { Table, Space } from "antd";
 import { informationStaticData } from "../data/fakeData";
 import { informationDynamicData } from "../data/fakeData";
@@ -19,29 +18,69 @@ class Information extends Component {
       "발생 장소": null,
       Airway: null,
       "병원 도착 후 심전도 리듬": null,
-      "재세동 ": null,
+      재세동: null,
       nonSustainedROSC: null,
       epinephrine: null,
       amiodarone: null,
     };
   }
 
-  // componentDidMount() {
-  //   socket.on("information", (msg) => {
-  //     this.setState({ "심정지 발생 시간": msg });
+  // setStaticInfo() {
+  //   this.props.socket.on("information", (obj) => {
+  //     this.setState({ staticInfo: { ...obj } });
   //   });
   // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      "병원 전 초기 심전도 리듬":
+        nextProps.staticInfo["병원 전 초기 심전도 리듬"],
+      "심정지 발생 시간": nextProps.staticInfo["심정지 발생 시간"],
+      "119 도착시간": nextProps.staticInfo["119 도착시간"],
+      witnessed: nextProps.staticInfo["witnessed"],
+      bystanderCPR: nextProps.staticInfo["bystanderCPR"],
+      "발생 장소": nextProps.staticInfo["발생 장소"],
+      Airway: nextProps.staticInfo["Airway"],
+      "병원 도착 후 심전도 리듬":
+        nextProps.staticInfo["병원 도착 후 심전도 리듬"],
+      재세동: nextProps.staticInfo["재세동"],
+      nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
+      epinephrine: nextProps.staticInfo["epinephrine"],
+      amiodarone: nextProps.staticInfo["amiodarone"],
+    });
+  }
+
+  componentWillMount() {
+    this.setState({});
+    // this.setStaticInfo();
+    // this.setState({
+    //   "병원 전 초기 심전도 리듬":
+    //     this.props.staticInfo["병원 전 초기 심전도 리듬"],
+    //   "심정지 발생 시간": this.props.staticInfo["심정지 발생 시간"],
+    //   "119 도착시간": this.props.staticInfo["119 도착시간"],
+    //   witnessed: this.props.staticInfo["witnessed"],
+    //   bystanderCPR: this.props.staticInfo["bystanderCPR"],
+    //   "발생 장소": this.props.staticInfo["발생 장소"],
+    //   Airway: this.props.staticInfo["Airway"],
+    //   "병원 도착 후 심전도 리듬":
+    //     this.props.staticInfo["병원 도착 후 심전도 리듬"],
+    //   재세동: this.props.staticInfo["재세동"],
+    //   nonSustainedROSC: this.props.staticInfo["nonSustainedROSC"],
+    //   epinephrine: this.props.staticInfo["epinephrine"],
+    //   amiodarone: null,
+    // });
+  }
 
   render() {
-    // console.log("get message: ", this.state);
+    console.log("Information.js rendering ", this.state);
+    console.log("Information.js props ", this.props);
+    // console.log("test -----> ", Object.keys(this.props.staticInfo).length);
+
     return (
       <table
         style={{
           border: "1px solid grey",
-          // width: window.innerWidth / 3,
           width: "33vw",
-          // height: window.innerHeight / 2 - 85,
-          height: "45vh",
+          height: "50vh",
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {
@@ -71,6 +110,9 @@ class Information extends Component {
                   }}
                 >
                   {curr[1]}
+                  {/* {Object.keys(this.props.staticInfo).length === 0
+                    ? curr[1]
+                    : this.props.staticInfo.obj[curr[1]]} */}
                 </div>
               </td>
             </tr>

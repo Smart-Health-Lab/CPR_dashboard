@@ -12,6 +12,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      환자번호: null,
+      이름: null,
+      나이: null,
+      성별: null,
       "병원 전 초기 심전도 리듬": null,
       "심정지 발생 시간": null,
       "119 도착시간": null,
@@ -20,7 +24,7 @@ class App extends Component {
       "발생 장소": null,
       Airway: null,
       "병원 도착 후 심전도 리듬": null,
-      "재세동 ": null,
+      재세동: null,
       process: null,
     };
   }
@@ -30,14 +34,17 @@ class App extends Component {
   }
 
   informationEmit = () => {
-    socket.emit("information", this.state);
+    let customInfo = this.state;
+    delete customInfo["process"];
+    socket.emit("information", customInfo);
   };
   processEmit = (obj) => {
     socket.emit("process", obj);
   };
 
   render() {
-    console.log(this.state);
+    console.log("test_client rendering, ", this.state);
+    console.log("app.js rendering");
 
     return (
       <div>
@@ -47,6 +54,50 @@ class App extends Component {
         <div style={{}}>
           <div style={{ margin: 20, fontSize: 15 }}>static information</div>
           <div style={{}}>
+            <div style={{ display: "flex", margin: 10 }}>
+              <Input
+                placeholder="환자번호"
+                style={{ width: "20vw", height: "5.9vh" }}
+                onChange={(text) => {
+                  this.setState({
+                    환자번호: text.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", margin: 10 }}>
+              <Input
+                placeholder="이름"
+                style={{ width: "20vw", height: "5.9vh" }}
+                onChange={(text) => {
+                  this.setState({
+                    이름: text.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", margin: 10 }}>
+              <Input
+                placeholder="나이"
+                style={{ width: "20vw", height: "5.9vh" }}
+                onChange={(text) => {
+                  this.setState({
+                    나이: text.target.value,
+                  });
+                }}
+              />
+            </div>
+            <div style={{ display: "flex", margin: 10 }}>
+              <Input
+                placeholder="성별"
+                style={{ width: "20vw", height: "5.9vh" }}
+                onChange={(text) => {
+                  this.setState({
+                    성별: text.target.value,
+                  });
+                }}
+              />
+            </div>
             <div style={{ display: "flex", margin: 10 }}>
               <Input
                 placeholder="병원 전 초기 심전도 리듬"
@@ -144,29 +195,6 @@ class App extends Component {
               }}
             >
               submit
-            </Button>
-          </div>
-        </div>
-        <div style={{ display: "flex" }}>
-          <div style={{ margin: 20, fontSize: 15 }}>process</div>
-          <div style={{ display: "flex", margin: 10 }}>
-            <Button
-              size="large"
-              onClick={() => {
-                const date = new Date();
-                this.processEmit({
-                  originalTime: date,
-                  time:
-                    date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
-                  content: "재세동",
-                });
-              }}
-            >
-              재세동
             </Button>
           </div>
         </div>
@@ -305,6 +333,29 @@ class App extends Component {
               }}
             >
               amiodarone
+            </Button>
+          </div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div style={{ margin: 20, fontSize: 15 }}>process</div>
+          <div style={{ display: "flex", margin: 10 }}>
+            <Button
+              size="large"
+              onClick={() => {
+                const date = new Date();
+                this.processEmit({
+                  originalTime: date,
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "재세동",
+                });
+              }}
+            >
+              재세동
             </Button>
           </div>
         </div>

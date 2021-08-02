@@ -33,6 +33,12 @@ io.on("connection", (socket) => {
     io.emit("process", obj);
   });
 
+  socket.on("information", (obj) => {
+    console.log("information => ", obj);
+
+    io.emit("information", obj);
+  });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
