@@ -40,6 +40,9 @@ class App extends Component {
       // startSeconds: null,
       // durationTime: null,
       // duraionTimePress: null,
+      epinephrine: false,
+      epinephrineTime: null,
+      epinephrineTimeOrigin: null,
       endTime: null,
       staticInfo: {},
     };
@@ -70,6 +73,8 @@ class App extends Component {
           restartTimeOrigin: obj.originalTime,
           cprRestart: true,
         });
+      } else if (obj.content === "epinephrine") {
+        this.setState({});
       }
 
       this.setState({
