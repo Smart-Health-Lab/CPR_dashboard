@@ -11,8 +11,8 @@ class CenterBottom extends Component {
       <div
         style={{
           width: "33vw",
-          height: "50vh",
-          marginTop: 10,
+          height: "40vh",
+          marginTop: 40,
         }}
       >
         <div

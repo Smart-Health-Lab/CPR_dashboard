@@ -6,7 +6,7 @@ import Moment from "react-moment";
 import Process from "./components/Process";
 import Information from "./components/Information";
 import BodyImage from "./components/BodyImage";
-import CenterTop from "./components/CenterTop";
+import Center from "./components/Center";
 import CenterBottom from "./components/CenterBottom";
 import "./App.css";
 
@@ -26,25 +26,65 @@ class App extends Component {
       나이: null,
       성별: null,
       processData: [],
+      cprStart: false,
       startTime: null,
+      startTimeOrigin: null,
+      cprStop: false,
+      stopTime: null,
+      stopTimeOrigin: null,
+      cprRestart: false,
+      restartTime: null,
+      restartTimeOrigin: null,
+      // startHours: null,
+      // startMins: null,
+      // startSeconds: null,
+      // durationTime: null,
+      // duraionTimePress: null,
+      endTime: null,
       staticInfo: {},
     };
   }
 
+  // 리셋함수 만들기 -> App.js 와 그 하위의 모든 컴포넌트들의 상태 리셋.
+
   addProcess = () => {
-    // const { processData } = this.state;
     socket.on("process", (obj) => {
+      // console.log("시간 확인 ", obj);
       if (obj.content === "CPR 시작") {
-        this.state.startTime = obj.time;
+        this.setState({
+          startTime: obj.time,
+          startTimeOrigin: obj.originalTime,
+          cprStart: true,
+        });
+        // this.state.startTime = obj.time;
+        // this.state.startTimeOrigin = obj.originalTime;
+      } else if (obj.content === "가슴압박 중지") {
+        this.setState({
+          stopTime: obj.time,
+          stopTimeOrigin: obj.originalTime,
+          cprStop: true,
+        });
+      } else if (obj.content === "가슴압박 재시작") {
+        this.setState({
+          restartTime: obj.time,
+          restartTimeOrigin: obj.originalTime,
+          cprRestart: true,
+        });
       }
-      this.setState({ processData: [...this.state.processData, obj] });
+
+      this.setState({
+        processData: [...this.state.processData, obj],
+        // startHours: obj.startHours,
+        // startMins: obj.startMins,
+        // startSecond: obj.startSeconds,
+      });
     });
   };
 
   setStaticInfo = () => {
     socket.on("information", (obj) => {
-      this.setState({ staticInfo: { ...obj } });
       this.setState({
+        staticInfo: { ...obj },
         환자번호: obj["환자번호"],
         이름: obj["이름"],
         나이: obj["나이"],
@@ -95,8 +135,19 @@ class App extends Component {
             <div
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
             >
-              <CenterTop startTime={this.state.startTime} />
-              <CenterBottom />
+              <Center
+                startTime={this.state.startTime}
+                // startHours={this.state.startHours}
+                // startMins={this.state.startMins}
+                // startSeconds={this.state.startSeconds}
+                cprStart={this.state.cprStart}
+                startTimeOrigin={this.state.startTimeOrigin}
+                cprStop={this.state.cprStop}
+                stopTimeOrigin={this.state.stopTimeOrigin}
+                cprRestart={this.state.cprRestart}
+                restartTimeOrigin={this.state.restartTimeOrigin}
+              />
+              {/* <CenterBottom /> */}
             </div>
             <Process processData={this.state.processData} />
           </div>
