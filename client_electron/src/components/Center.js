@@ -139,11 +139,11 @@ class Center extends Component {
   // durationFunc = (start, resume, pause, stop, reset, timerState) => {};
 
   render() {
-    // console.log("Center.js rendering", this.state);
-    // console.log(
-    //   "---- cumulativePressTime -----",
-    //   this.state.cumulativePressTime
-    // );
+    console.log("Center.js rendering", this.state);
+    console.log(
+      "---- cumulativePressTime -----",
+      this.state.cumulativePressTime
+    );
 
     return (
       <>
