@@ -7,8 +7,8 @@ class CircularProgress02 extends Component {
   }
 
   render() {
-    console.log("CircularProgress01.js rendering");
-    console.log("props", this.props);
+    // console.log("CircularProgress01.js rendering");
+    // console.log("props", this.props);
 
     // Size of the enclosing square
     const sqSize = this.props.sqSize;

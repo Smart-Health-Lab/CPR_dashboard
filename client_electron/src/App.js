@@ -97,7 +97,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("App.js 렌더링 ", this.state);
+    // console.log("App.js 렌더링 ", this.state);
 
     return (
       <Layout style={{ height: "100%" }}>
