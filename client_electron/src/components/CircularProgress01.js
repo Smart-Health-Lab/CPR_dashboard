@@ -80,8 +80,8 @@ class CircularProgress01 extends Component {
   // };
 
   render() {
-    console.log("CircularProgress01.js rendering", this.state);
-    console.log(this.props);
+    console.log("CircularProgress01.js rendering");
+    console.log("props", this.props);
 
     // Size of the enclosing square
     const sqSize = this.props.sqSize;
@@ -126,8 +126,8 @@ class CircularProgress01 extends Component {
           })`}
         />
         <text x="50%" y="50%" dy=".3em" textAnchor="middle">
-          {this.props.cprStart
-            ? this.props.durationFunc(this.props.durationTime)
+          {this.props.cprRestart === true && this.props.cprStop === false
+            ? this.props.durationFunc(this.props.durationPressTime)
             : "00:00:00"}
           {/* {`${this.props.percentage}%`} */}
         </text>

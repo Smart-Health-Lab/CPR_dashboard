@@ -57,7 +57,9 @@ class App extends Component {
         this.setState({
           startTime: obj.time,
           startTimeOrigin: obj.originalTime,
+          restartTimeOrigin: obj.originalTime,
           cprStart: true,
+          cprRestart: true,
         });
         // this.state.startTime = obj.time;
         // this.state.startTimeOrigin = obj.originalTime;
@@ -66,12 +68,14 @@ class App extends Component {
           stopTime: obj.time,
           stopTimeOrigin: obj.originalTime,
           cprStop: true,
+          cprRestart: false,
         });
       } else if (obj.content === "가슴압박 재시작") {
         this.setState({
           restartTime: obj.time,
           restartTimeOrigin: obj.originalTime,
           cprRestart: true,
+          cprStop: false,
         });
       } else if (obj.content === "epinephrine") {
         this.setState({});

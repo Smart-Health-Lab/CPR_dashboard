@@ -174,12 +174,18 @@ class Center extends Component {
                 format="HH:mm:ss"
                 onChange={(time) => {
                   let curTime = new Date();
+                  curTime = curTime.getTime();
                   this.setState({
                     currentTime: String(time),
                     durationTime: Math.round(
-                      (curTime.getTime() - this.state.startTimeOrigin) / 1000
+                      (curTime - this.state.startTimeOrigin) / 1000
                     ),
-                    durationPressTime: Math.round(),
+                    durationPressTime: Math.round(
+                      (curTime - this.state.restartTimeOrigin) / 1000
+                    ),
+                    durationStopTime: Math.round(
+                      (curTime - this.state.stopTimeOrigin) / 1000
+                    ),
                   });
 
                   // console.log(a);
@@ -263,9 +269,9 @@ class Center extends Component {
                 durationFunc={this.durationFunc}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}
-                cprStop={this.state.stopTimeOrigin}
+                cprStop={this.state.cprStop}
                 stopTimeOrigin={this.state.stopTimeOrigin}
-                cprRestart={this.state.restartTimeOrigin}
+                cprRestart={this.state.cprRestart}
                 restartTimeOrigin={this.state.restartTimeOrigin}
                 durationTime={this.state.durationTime}
                 durationPressTime={this.state.durationPressTime}
@@ -291,9 +297,9 @@ class Center extends Component {
                 durationFunc={this.durationFunc}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}
-                cprStop={this.state.stopTimeOrigin}
+                cprStop={this.state.cprStop}
                 stopTimeOrigin={this.state.stopTimeOrigin}
-                cprRestart={this.state.restartTimeOrigin}
+                cprRestart={this.state.cprRestart}
                 restartTimeOrigin={this.state.restartTimeOrigin}
                 durationTime={this.state.durationTime}
                 durationPressTime={this.state.durationPressTime}

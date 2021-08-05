@@ -80,6 +80,9 @@ class CircularProgress02 extends Component {
   //   };
 
   render() {
+    console.log("CircularProgress01.js rendering");
+    console.log("props", this.props);
+
     // Size of the enclosing square
     const sqSize = this.props.sqSize;
     // SVG centers the stroke width on the radius, subtract out so circle fits in square
@@ -123,8 +126,8 @@ class CircularProgress02 extends Component {
           })`}
         />
         <text x="50%" y="50%" dy=".3em" textAnchor="middle">
-          {this.props.cprStart
-            ? this.props.durationFunc(this.props.durationTime)
+          {this.props.cprStop === true && this.props.cprRestart === false
+            ? this.props.durationFunc(this.props.durationStopTime)
             : "00:00:00"}
           {/* {`${this.props.percentage}%`} */}
         </text>
