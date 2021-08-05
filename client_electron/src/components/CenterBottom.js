@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import CircularProgress01 from "./CircularProgress01";
 import CircularProgress02 from "./CircularProgress02";
-import Timer from "react-compound-timer";
 
 class CenterBottom extends Component {
   constructor(props) {

@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import io, { Socket } from "socket.io-client";
 import { Layout } from "antd";
-import Clock from "react-live-clock";
 import Moment from "react-moment";
 import Process from "./components/Process";
 import Information from "./components/Information";
 import BodyImage from "./components/BodyImage";
 import Center from "./components/Center";
-import CenterBottom from "./components/CenterBottom";
 import "./App.css";
 
 const { Header, Content, Footer } = Layout;
@@ -35,11 +33,6 @@ class App extends Component {
       cprRestart: false,
       restartTime: null,
       restartTimeOrigin: null,
-      // startHours: null,
-      // startMins: null,
-      // startSeconds: null,
-      // durationTime: null,
-      // duraionTimePress: null,
       epinephrine: false,
       epinephrineTime: null,
       epinephrineTimeOrigin: null,
@@ -61,8 +54,6 @@ class App extends Component {
           cprStart: true,
           cprRestart: true,
         });
-        // this.state.startTime = obj.time;
-        // this.state.startTimeOrigin = obj.originalTime;
       } else if (obj.content === "가슴압박 중지") {
         this.setState({
           stopTime: obj.time,
@@ -83,9 +74,6 @@ class App extends Component {
 
       this.setState({
         processData: [...this.state.processData, obj],
-        // startHours: obj.startHours,
-        // startMins: obj.startMins,
-        // startSecond: obj.startSeconds,
       });
     });
   };
@@ -131,7 +119,6 @@ class App extends Component {
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
             {/* <Clock /> */}
           </div>
-          {/* <div style={{}}>2020.11.27 15:04:03</div> */}
         </Header>
         <Content style={{ backgroundColor: "white", height: "87vh" }}>
           <div style={{ display: "flex" }}>
@@ -146,9 +133,6 @@ class App extends Component {
             >
               <Center
                 startTime={this.state.startTime}
-                // startHours={this.state.startHours}
-                // startMins={this.state.startMins}
-                // startSeconds={this.state.startSeconds}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}
                 cprStop={this.state.cprStop}
@@ -156,7 +140,6 @@ class App extends Component {
                 cprRestart={this.state.cprRestart}
                 restartTimeOrigin={this.state.restartTimeOrigin}
               />
-              {/* <CenterBottom /> */}
             </div>
             <Process processData={this.state.processData} />
           </div>
@@ -171,7 +154,7 @@ class App extends Component {
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div>SHL ©2020</div>
+          <div>SHL ©2021</div>
         </Footer>
       </Layout>
     );

@@ -1,83 +1,10 @@
 import React, { Component } from "react";
-import CustomTimer from "./CustomTimer";
 
 class CircularProgress01 extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // cprStart: false,
-      // startTimeOrigin: null,
-      // cprStop: false,
-      // stopTimeOrigin: null,
-      // cprRestart: false,
-      // restartTimeOrigin: null,
-      // durationTime: null,
-      // durationPressTime: null,
-      // durationStopTime: null,
-    };
+    this.state = {};
   }
-
-  // componentWillReceiveProps() {
-  //   this.setState({
-  //     cprStart: this.props.cprStart,
-  //     startTimeOrigin: this.props.startTimeOrigin,
-  //     cprStop: this.props.cprStop,
-  //     stopTimeOrigin: this.props.stopTimeOrigin,
-  //     cprRestart: this.props.cprRestart,
-  //     restartTimeOrigin: this.props.restartTimeOrigin,
-  //     durationTime: this.props.durationTime,
-  //     durationPressTime: this.props.durationPressTime,
-  //     durationStopTime: this.props.durationStopTime,
-  //   });
-  // }
-
-  // durationFunc = (durationTime) => {
-  //   if (this.state.cprStart && durationTime < 60) {
-  //     return durationTime > 10
-  //       ? `00:00:${durationTime}`
-  //       : `00:00:0${durationTime}`;
-  //   } else if (
-  //     this.state.cprStart &&
-  //     durationTime >= 60 &&
-  //     durationTime < 3600
-  //   ) {
-  //     let seconds = durationTime % 60;
-  //     let mins = (durationTime - seconds) / 60;
-
-  //     return mins > 10
-  //       ? seconds > 10
-  //         ? `00:${mins}:${seconds}`
-  //         : `00:${mins}:0${seconds}`
-  //       : seconds > 10
-  //       ? `00:0${mins}:${seconds}`
-  //       : `00:0${mins}:0${seconds}`;
-  //   } else if (
-  //     this.state.cprStart &&
-  //     durationTime >= 3600 &&
-  //     durationTime < 86400
-  //   ) {
-  //     let seconds = durationTime % 60;
-  //     let preMins = Math.floor(durationTime / 60);
-  //     let mins = preMins % 60;
-  //     let hours = Math.floor(mins / 60);
-
-  //     return hours > 10
-  //       ? mins > 10
-  //         ? seconds > 10
-  //           ? `${hours}:${mins}:${seconds}`
-  //           : `${hours}:${mins}:0${seconds}`
-  //         : seconds > 10
-  //         ? `${hours}:0${mins}:${seconds}`
-  //         : `${hours}:0${mins}:0${seconds}`
-  //       : mins > 10
-  //       ? seconds > 10
-  //         ? `0${hours}:${mins}:${seconds}`
-  //         : `0${hours}:${mins}:0${seconds}`
-  //       : seconds > 10
-  //       ? `0${hours}:0${mins}:${seconds}`
-  //       : `0${hours}:0${mins}:0${seconds}`;
-  //   }
-  // };
 
   render() {
     console.log("CircularProgress01.js rendering");
