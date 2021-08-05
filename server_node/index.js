@@ -16,10 +16,6 @@ http.listen(3002, () => {
   console.log("Connected at 3002");
 });
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
-
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
@@ -28,14 +24,14 @@ io.on("connection", (socket) => {
   //   });
 
   socket.on("process", (obj) => {
-    console.log("process => ", obj);
-    console.log(obj.originalTime);
+    // console.log("process => ", obj);
+    // console.log(obj.originalTime);
 
     io.emit("process", obj);
   });
 
   socket.on("information", (obj) => {
-    console.log("information => ", obj);
+    // console.log("information => ", obj);
 
     io.emit("information", obj);
   });
