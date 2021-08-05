@@ -19,11 +19,12 @@ class Center extends Component {
       durationPressTime: 0,
       durationStopTime: 0,
       cumulativePressTime: 0,
+      momentRendering: false,
     };
   }
 
   componentWillReceiveProps() {
-    if (this.state.cprStop === true) {
+    if (this.props.cprStop === true) {
       this.setState({
         cprStart: this.props.cprStart,
         startTime: this.props.startTime,
@@ -34,7 +35,7 @@ class Center extends Component {
         restartTimeOrigin: this.props.restartTimeOrigin,
         durationPressTime: 0,
       });
-    } else if (this.state.cprRestart === true) {
+    } else if (this.props.cprRestart === true) {
       this.setState({
         cprStart: this.props.cprStart,
         startTime: this.props.startTime,
@@ -57,6 +58,10 @@ class Center extends Component {
       });
     }
   }
+
+  cumulativePressUpdate = () => {
+    this.state.cumulativePressTime += 1;
+  };
 
   circularPercentage01 = () => {
     if (
@@ -136,14 +141,13 @@ class Center extends Component {
         : `0${hours}:0${mins}:0${seconds}`;
     }
   };
-  // durationFunc = (start, resume, pause, stop, reset, timerState) => {};
 
   render() {
-    console.log("Center.js rendering", this.state);
-    console.log(
-      "---- cumulativePressTime -----",
-      this.state.cumulativePressTime
-    );
+    // console.log("Center.js rendering", this.state);
+    // console.log(
+    //   "---- cumulativePressTime -----",
+    //   this.state.cumulativePressTime
+    // );
 
     return (
       <>
@@ -214,31 +218,36 @@ class Center extends Component {
                 onChange={(time) => {
                   let curTime = new Date();
                   curTime = curTime.getTime();
-                  this.setState({
-                    currentTime: curTime,
-                    durationTime: Math.round(
-                      (curTime - this.state.startTimeOrigin) / 1000
-                    ),
-                    durationPressTime: Math.round(
-                      (curTime - this.state.restartTimeOrigin) / 1000
-                    ),
-                    durationStopTime: Math.round(
-                      (curTime - this.state.stopTimeOrigin) / 1000
-                    ),
-                  });
-                  if (
-                    (this.state.cprStop === false &&
-                      this.state.cprStart === true) ||
-                    (this.state.cprStop === false &&
-                      this.state.cprRestart === true)
-                  ) {
-                    this.state.cumulativePressTime += 1;
+                  if (this.state.cprRestart) {
+                    this.setState({
+                      currentTime: curTime,
+                      durationTime: Math.round(
+                        (curTime - this.state.startTimeOrigin) / 1000
+                      ),
+                      durationPressTime: Math.round(
+                        (curTime - this.state.restartTimeOrigin) / 1000
+                      ),
+                      durationStopTime: Math.round(
+                        (curTime - this.state.stopTimeOrigin) / 1000
+                      ),
+                      momentRendering: true,
+                    });
+                  } else {
+                    this.setState({
+                      currentTime: curTime,
+                      durationTime: Math.round(
+                        (curTime - this.state.startTimeOrigin) / 1000
+                      ),
+                      durationPressTime: Math.round(
+                        (curTime - this.state.restartTimeOrigin) / 1000
+                      ),
+                      durationStopTime: Math.round(
+                        (curTime - this.state.stopTimeOrigin) / 1000
+                      ),
+                    });
                   }
-
-                  // console.log(a);
                 }}
               />
-              <div style={{ fontSize: 15 }}>{}</div>
             </div>
           </div>
           <div
@@ -253,9 +262,12 @@ class Center extends Component {
           >
             <div>CCFR</div>
             <div style={{ fontSize: 15, marginLeft: 10 }}>
-              {`${Math.round(
-                (this.state.cumulativePressTime / this.state.durationTime) * 100
-              )} %`}
+              {this.state.cprStart
+                ? `${Math.round(
+                    (this.state.cumulativePressTime / this.state.durationTime) *
+                      100
+                  )} %`
+                : null}
             </div>
           </div>
         </div>
@@ -307,6 +319,8 @@ class Center extends Component {
                 sqSize={"150"}
                 percentage={this.circularPercentage01()}
                 durationFunc={this.durationFunc}
+                cumulativePressUpdate={this.cumulativePressUpdate}
+                momentRendering={this.state.momentRendering}
                 cumulativeTimeFunc={this.cumulativeTimeFunc}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}

@@ -10,6 +10,10 @@ class CircularProgress01 extends Component {
     // console.log("CircularProgress01.js rendering");
     // console.log("props", this.props);
 
+    if (this.props.cprRestart && this.props.momentRendering) {
+      this.props.cumulativePressUpdate();
+    }
+
     // Size of the enclosing square
     const sqSize = this.props.sqSize;
     // SVG centers the stroke width on the radius, subtract out so circle fits in square
