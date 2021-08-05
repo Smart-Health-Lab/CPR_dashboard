@@ -58,6 +58,37 @@ class Center extends Component {
     }
   }
 
+  circularPercentage01 = () => {
+    if (
+      (this.state.cprStop === false && this.state.cprStart === true) ||
+      (this.state.cprStop === false && this.state.cprRestart === true)
+    ) {
+      let percentage =
+        (Math.round((this.state.durationPressTime / 120) * 100) / 100) * 100;
+      if (percentage < 100) {
+        return String(percentage);
+      } else {
+        return "100";
+      }
+    } else {
+      return "0";
+    }
+  };
+
+  circularPercentage02 = () => {
+    if (this.state.cprStop === true) {
+      let percentage =
+        (Math.round((this.state.durationStopTime / 10) * 100) / 100) * 100;
+      if (percentage < 100) {
+        return String(percentage);
+      } else {
+        return "100";
+      }
+    } else {
+      return "0";
+    }
+  };
+
   durationFunc = (durationTime) => {
     if (this.state.cprStart && durationTime < 60) {
       return durationTime > 10
@@ -140,7 +171,7 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div style={{ fontSize: 30 }}>지속 시간</div>
+              <div style={{ fontSize: 20 }}>지속 시간</div>
               <div style={{ fontSize: 15 }}>
                 {this.state.cprStart
                   ? this.durationFunc(this.state.durationTime)
@@ -227,17 +258,6 @@ class Center extends Component {
               )} %`}
             </div>
           </div>
-          {/* <CenterBottom
-          cprStart={this.state.cprStart}
-          startTimeOrigin={this.state.startTimeOrigin}
-          cprRestart={this.state.cprRestart}
-          restartTimeOrigin={this.state.restartTimeOrigin}
-          cprStop={this.state.cprStop}
-          stopTimeOrigin={this.state.stopTimeOrigin}
-          durationTime={this.state.durationTime}
-          durationPressTime={this.state.durationPressTime}
-          durationStopTime={this.state.durationStopTime}
-        /> */}
         </div>
         <div
           style={{
@@ -285,7 +305,7 @@ class Center extends Component {
               <CircularProgress01
                 strokeWidth={"10"}
                 sqSize={"150"}
-                percentage={"30"}
+                percentage={this.circularPercentage01()}
                 durationFunc={this.durationFunc}
                 cumulativeTimeFunc={this.cumulativeTimeFunc}
                 cprStart={this.state.cprStart}
@@ -314,7 +334,7 @@ class Center extends Component {
               <CircularProgress02
                 strokeWidth={"10"}
                 sqSize={"150"}
-                percentage={"1.9"}
+                percentage={this.circularPercentage02()}
                 durationFunc={this.durationFunc}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}
