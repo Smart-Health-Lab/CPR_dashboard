@@ -24,6 +24,7 @@ class App extends Component {
       나이: null,
       성별: null,
       processData: [],
+      initialStart: true,
       cprStart: false,
       startTime: null,
       startTimeOrigin: null,
@@ -51,6 +52,7 @@ class App extends Component {
           startTime: obj.time,
           startTimeOrigin: obj.originalTime,
           restartTimeOrigin: obj.originalTime,
+          initialStart: true,
           cprStart: true,
           cprRestart: true,
         });
@@ -58,6 +60,7 @@ class App extends Component {
         this.setState({
           stopTime: obj.time,
           stopTimeOrigin: obj.originalTime,
+          initialStart: false,
           cprStop: true,
           cprRestart: false,
         });
@@ -65,11 +68,11 @@ class App extends Component {
         this.setState({
           restartTime: obj.time,
           restartTimeOrigin: obj.originalTime,
+          initialStart: false,
           cprRestart: true,
           cprStop: false,
         });
       } else if (obj.content === "epinephrine") {
-        this.setState({});
       }
 
       this.setState({
@@ -132,6 +135,7 @@ class App extends Component {
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
             >
               <Center
+                initialStart={this.state.initialStart}
                 startTime={this.state.startTime}
                 cprStart={this.state.cprStart}
                 startTimeOrigin={this.state.startTimeOrigin}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
+import { Progress } from "antd";
 import CircularProgress01 from "./CircularProgress01";
 import CircularProgress02 from "./CircularProgress02";
 
@@ -24,7 +25,7 @@ class Center extends Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.cprStop === true) {
+    if (this.props.cprStop) {
       this.setState({
         cprStart: this.props.cprStart,
         startTime: this.props.startTime,
@@ -35,7 +36,7 @@ class Center extends Component {
         restartTimeOrigin: this.props.restartTimeOrigin,
         durationPressTime: 0,
       });
-    } else if (this.props.cprRestart === true) {
+    } else if (this.props.cprRestart) {
       this.setState({
         cprStart: this.props.cprStart,
         startTime: this.props.startTime,
@@ -59,8 +60,13 @@ class Center extends Component {
     }
   }
 
+  // changePstate = (key, val) => {
+  //   this.setState({ [key]: val });
+  // };
+
   cumulativePressUpdate = () => {
     this.state.cumulativePressTime += 1;
+    // let cumulResult = this.state.cumulativePressTime + 1;
   };
 
   circularPercentage01 = () => {
@@ -262,11 +268,15 @@ class Center extends Component {
           >
             <div>CCFR</div>
             <div style={{ fontSize: 15, marginLeft: 10 }}>
+              {}
               {this.state.cprStart
-                ? `${Math.round(
-                    (this.state.cumulativePressTime / this.state.durationTime) *
-                      100
-                  )} %`
+                ? this.props.initialStart
+                  ? "100 %"
+                  : `${Math.round(
+                      (this.state.cumulativePressTime /
+                        this.state.durationTime) *
+                        100
+                    )} %`
                 : null}
             </div>
           </div>
