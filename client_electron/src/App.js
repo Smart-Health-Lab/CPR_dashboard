@@ -121,14 +121,13 @@ class App extends Component {
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div style={{ fontSize: 20 }}>
+          <div style={{ fontSize: `1vw` }}>
             {" "}
             {this.state["환자번호"]} / {this.state["이름"]} /{" "}
             {this.state["나이"]} / {this.state["성별"]}{" "}
           </div>
-          <div style={{ fontSize: 20 }}>
+          <div style={{ fontSize: `1vw` }}>
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
-            {/* <Clock /> */}
           </div>
         </Header>
         <Content style={{ backgroundColor: "white", height: "87vh" }}>
@@ -162,13 +161,13 @@ class App extends Component {
           style={{
             display: "flex",
             justifyContent: "center",
-            height: "7vh",
+            height: "6vh",
             width: "100vw",
             textAlign: "center",
             backgroundColor: "#D5DFE1",
           }}
         >
-          <div>SHL ©2021</div>
+          <div style={{ fontSize: `1vw` }}>SHL ©2021</div>
         </Footer>
       </Layout>
     );
