@@ -344,7 +344,6 @@ class Center extends Component {
                 showInfo={false}
                 type={"line"}
                 strokeWidth={`2vw`}
-                // style={{ fontSize: 40 }}
               />
             </div>
           </div>
