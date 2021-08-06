@@ -24,8 +24,7 @@ io.on("connection", (socket) => {
   //   });
 
   socket.on("process", (obj) => {
-    // console.log("process => ", obj);
-    // console.log(obj.originalTime);
+    console.log("process => ", obj);
 
     io.emit("process", obj);
   });

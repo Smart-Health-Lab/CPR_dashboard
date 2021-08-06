@@ -29,13 +29,12 @@ class App extends Component {
       startTime: null,
       startTimeOrigin: null,
       cprStop: false,
-      stopTime: null,
+      // stopTime: null,
       stopTimeOrigin: null,
       cprRestart: false,
-      restartTime: null,
+      // restartTime: null,
       restartTimeOrigin: null,
       epinephrine: false,
-      epinephrineTime: null,
       epinephrineTimeOrigin: null,
       endTime: null,
       staticInfo: {},
@@ -58,7 +57,7 @@ class App extends Component {
         });
       } else if (obj.content === "가슴압박 중지") {
         this.setState({
-          stopTime: obj.time,
+          // stopTime: obj.time,
           stopTimeOrigin: obj.originalTime,
           initialStart: false,
           cprStop: true,
@@ -66,19 +65,28 @@ class App extends Component {
         });
       } else if (obj.content === "가슴압박 재시작") {
         this.setState({
-          restartTime: obj.time,
+          // restartTime: obj.time,
           restartTimeOrigin: obj.originalTime,
           initialStart: false,
           cprRestart: true,
           cprStop: false,
         });
-      } else if (obj.content === "epinephrine") {
+      } else if (obj.content === "Epinephrine") {
+        this.setState({
+          // epinephrineTime: obj.time,
+          epinephrineTimeOrigin: obj.originalTime,
+          epinephrine: true,
+        });
       }
 
       this.setState({
         processData: [...this.state.processData, obj],
       });
     });
+  };
+
+  changeAppState = (key, val) => {
+    this.setState({ [key]: val });
   };
 
   setStaticInfo = () => {
@@ -143,6 +151,8 @@ class App extends Component {
                 stopTimeOrigin={this.state.stopTimeOrigin}
                 cprRestart={this.state.cprRestart}
                 restartTimeOrigin={this.state.restartTimeOrigin}
+                epinephrine={this.state.epinephrine}
+                epinephrineTimeOrigin={this.state.epinephrineTimeOrigin}
               />
             </div>
             <Process processData={this.state.processData} />

@@ -3,6 +3,7 @@ import Moment from "react-moment";
 import { Progress } from "antd";
 import CircularProgress01 from "./CircularProgress01";
 import CircularProgress02 from "./CircularProgress02";
+import epinephrineImg from "../data/epi_img.png";
 
 class Center extends Component {
   constructor(props) {
@@ -15,10 +16,14 @@ class Center extends Component {
       stopTimeOrigin: null,
       cprRestart: false,
       restartTimeOrigin: null,
+      epinephrine: false,
+      epinephrineTimeOrigin: null,
       currentTime: "00:00:00",
       durationTime: 0,
       durationPressTime: 0,
       durationStopTime: 0,
+      durationEpinephrineTime: 0,
+      epinephrinePercentage: 0,
       cumulativePressTime: 0,
       momentRendering: false,
     };
@@ -34,6 +39,8 @@ class Center extends Component {
         stopTimeOrigin: this.props.stopTimeOrigin,
         cprRestart: this.props.cprRestart,
         restartTimeOrigin: this.props.restartTimeOrigin,
+        epinephrine: this.props.epinephrine,
+        epinephrineTimeOrigin: this.props.epinephrineTimeOrigin,
         durationPressTime: 0,
       });
     } else if (this.props.cprRestart) {
@@ -45,6 +52,8 @@ class Center extends Component {
         stopTimeOrigin: this.props.stopTimeOrigin,
         cprRestart: this.props.cprRestart,
         restartTimeOrigin: this.props.restartTimeOrigin,
+        epinephrine: this.props.epinephrine,
+        epinephrineTimeOrigin: this.props.epinephrineTimeOrigin,
         durationStopTime: 0,
       });
     } else {
@@ -56,6 +65,8 @@ class Center extends Component {
         stopTimeOrigin: this.props.stopTimeOrigin,
         cprRestart: this.props.cprRestart,
         restartTimeOrigin: this.props.restartTimeOrigin,
+        epinephrine: this.props.epinephrine,
+        epinephrineTimeOrigin: this.props.epinephrineTimeOrigin,
       });
     }
   }
@@ -100,16 +111,12 @@ class Center extends Component {
     }
   };
 
-  durationFunc = (durationTime) => {
-    if (this.state.cprStart && durationTime < 60) {
+  durationFunc = (checkState, durationTime) => {
+    if (checkState && durationTime < 60) {
       return durationTime > 10
         ? `00:00:${durationTime}`
         : `00:00:0${durationTime}`;
-    } else if (
-      this.state.cprStart &&
-      durationTime >= 60 &&
-      durationTime < 3600
-    ) {
+    } else if (checkState && durationTime >= 60 && durationTime < 3600) {
       let seconds = durationTime % 60;
       let mins = (durationTime - seconds) / 60;
 
@@ -120,11 +127,7 @@ class Center extends Component {
         : seconds > 10
         ? `00:0${mins}:${seconds}`
         : `00:0${mins}:0${seconds}`;
-    } else if (
-      this.state.cprStart &&
-      durationTime >= 3600 &&
-      durationTime < 86400
-    ) {
+    } else if (checkState && durationTime >= 3600 && durationTime < 86400) {
       let seconds = durationTime % 60;
       let preMins = Math.floor(durationTime / 60);
       let mins = preMins % 60;
@@ -184,7 +187,10 @@ class Center extends Component {
               <div style={{ fontSize: 20 }}>지속 시간</div>
               <div style={{ fontSize: 15 }}>
                 {this.state.cprStart
-                  ? this.durationFunc(this.state.durationTime)
+                  ? this.durationFunc(
+                      this.state.cprStart,
+                      this.state.durationTime
+                    )
                   : "00:00:00"}
               </div>
             </div>
@@ -236,6 +242,11 @@ class Center extends Component {
                       durationStopTime: Math.round(
                         (curTime - this.state.stopTimeOrigin) / 1000
                       ),
+                      durationEpinephrineTime: Math.round(
+                        (curTime - this.state.epinephrineTimeOrigin) / 1000
+                      ),
+                      epinephrinePercentage:
+                        100 - (this.state.durationEpinephrineTime / 180) * 100,
                       momentRendering: true,
                     });
                   } else {
@@ -250,6 +261,11 @@ class Center extends Component {
                       durationStopTime: Math.round(
                         (curTime - this.state.stopTimeOrigin) / 1000
                       ),
+                      durationEpinephrineTime: Math.round(
+                        (curTime - this.state.epinephrineTimeOrigin) / 1000
+                      ),
+                      epinephrinePercentage:
+                        100 - (this.state.durationEpinephrineTime / 180) * 100,
                     });
                   }
                 }}
@@ -291,22 +307,38 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
+              height: "9vh",
+              width: "33vw",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "9vh",
-                width: "33vw",
-              }}
-            >
-              <div>
-                <div>(image)</div>
-              </div>
-              <div>
+            <div>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                <div style={{ marginRight: 10 }}>
+                  <img
+                    src={epinephrineImg}
+                    style={{
+                      width: "2vw",
+                      height: "2vh",
+                      marginTop: 0,
+                    }}
+                  />
+                </div>
                 <div>Epinephrine</div>
+                <div style={{ fontSize: 15, marginLeft: 10 }}>
+                  {this.state.epinephrine
+                    ? this.durationFunc(
+                        this.state.epinephrine,
+                        this.state.durationEpinephrineTime
+                      )
+                    : "00:00:00"}
+                </div>
               </div>
+              <Progress
+                percent={this.state.epinephrinePercentage}
+                steps={18}
+                showInfo={false}
+                type={"line"}
+              />
             </div>
           </div>
           <div style={{ display: "flex", height: "20vh", width: "33vw" }}>
@@ -323,7 +355,6 @@ class Center extends Component {
               }}
             >
               <div>가슴압박 지속</div>
-
               <CircularProgress01
                 strokeWidth={"10"}
                 sqSize={"150"}

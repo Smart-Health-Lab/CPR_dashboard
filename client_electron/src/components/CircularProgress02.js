@@ -54,7 +54,10 @@ class CircularProgress02 extends Component {
         />
         <text x="50%" y="50%" dy=".3em" textAnchor="middle">
           {this.props.cprStop === true && this.props.cprRestart === false
-            ? this.props.durationFunc(this.props.durationStopTime)
+            ? this.props.durationFunc(
+                this.props.cprStart,
+                this.props.durationStopTime
+              )
             : "00:00:00"}
           {/* {`${this.props.percentage}%`} */}
         </text>

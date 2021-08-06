@@ -207,9 +207,9 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  startHours: date.getHours(),
-                  startMins: date.getMinutes(),
-                  startSeconds: date.getSeconds(),
+                  // startHours: date.getHours(),
+                  // startMins: date.getMinutes(),
+                  // startSeconds: date.getSeconds(),
                   time:
                     date.getHours() +
                     ":" +
@@ -308,7 +308,7 @@ class App extends Component {
                     date.getMinutes() +
                     ":" +
                     date.getSeconds(),
-                  content: "epinephrine",
+                  content: "Epinephrine",
                 });
               }}
             >
