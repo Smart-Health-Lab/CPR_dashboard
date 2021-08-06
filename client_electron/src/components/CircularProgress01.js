@@ -27,8 +27,8 @@ class CircularProgress01 extends Component {
 
     return (
       <svg
-        width={this.props.sqSize}
-        height={this.props.sqSize}
+        width={`${this.props.sqSize}vw`}
+        height={`${this.props.sqSize}vh`}
         viewBox={viewBox}
       >
         <circle
@@ -56,7 +56,13 @@ class CircularProgress01 extends Component {
             this.props.sqSize / 2
           })`}
         />
-        <text x="50%" y="50%" dy=".3em" textAnchor="middle">
+        <text
+          x="50%"
+          y="50%"
+          dy=".3em"
+          textAnchor="middle"
+          style={{ fontSize: `1vw` }}
+        >
           {this.props.cprRestart === true && this.props.cprStop === false
             ? this.props.durationFunc(
                 this.props.cprStart,

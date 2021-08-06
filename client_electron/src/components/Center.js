@@ -184,8 +184,8 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div style={{ fontSize: 20 }}>지속 시간</div>
-              <div style={{ fontSize: 15 }}>
+              <div style={{ fontSize: `1vw` }}>지속 시간</div>
+              <div style={{ fontSize: `1vw` }}>
                 {this.state.cprStart
                   ? this.durationFunc(
                       this.state.cprStart,
@@ -205,11 +205,11 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div style={{ fontSize: 20 }}>시작 시간</div>
+              <div style={{ fontSize: `1vw` }}>시작 시간</div>
               {this.state.cprStart === false ? (
                 "00:00:00"
               ) : (
-                <div style={{ fontSize: 15 }}>{this.props.startTime}</div>
+                <div style={{ fontSize: `1vw` }}>{this.props.startTime}</div>
               )}
             </div>
             <div
@@ -222,10 +222,10 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div style={{ fontSize: 20 }}>현재 시간</div>
+              <div style={{ fontSize: `1vw` }}>현재 시간</div>
               <Moment
                 interval={1000}
-                style={{ fontSize: 15 }}
+                style={{ fontSize: `1vw` }}
                 format="HH:mm:ss"
                 onChange={(time) => {
                   let curTime = new Date();
@@ -282,9 +282,8 @@ class Center extends Component {
               backgroundColor: "#DFECEE",
             }}
           >
-            <div>CCFR</div>
-            <div style={{ fontSize: 15, marginLeft: 10 }}>
-              {}
+            <div style={{ fontSize: `1vw` }}>CCFR</div>
+            <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
               {this.state.cprStart
                 ? this.props.initialStart
                   ? "100 %"
@@ -323,8 +322,8 @@ class Center extends Component {
                     }}
                   />
                 </div>
-                <div>Epinephrine</div>
-                <div style={{ fontSize: 15, marginLeft: 10 }}>
+                <div style={{ fontSize: `1vw` }}>Epinephrine</div>
+                <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
                   {this.state.epinephrine
                     ? this.durationFunc(
                         this.state.epinephrine,
@@ -354,7 +353,7 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div>가슴압박 지속</div>
+              <div style={{ fontSize: `1vw` }}>가슴압박 지속</div>
               <CircularProgress01
                 strokeWidth={"10"}
                 sqSize={"150"}
@@ -385,7 +384,7 @@ class Center extends Component {
                 backgroundColor: "#DFECEE",
               }}
             >
-              <div>가슴압박 중지</div>
+              <div style={{ fontSize: `1vw` }}>가슴압박 중지</div>
               <CircularProgress02
                 strokeWidth={"10"}
                 sqSize={"150"}

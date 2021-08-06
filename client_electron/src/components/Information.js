@@ -25,11 +25,6 @@ class Information extends Component {
     };
   }
 
-  // setStaticInfo() {
-  //   this.props.socket.on("information", (obj) => {
-  //     this.setState({ staticInfo: { ...obj } });
-  //   });
-  // }
   componentWillReceiveProps(nextProps) {
     this.setState({
       "병원 전 초기 심전도 리듬":
@@ -78,6 +73,7 @@ class Information extends Component {
                     marginTop: 10,
                     marginRight: 5,
                     width: "13vw",
+                    fontSize: `1vw`,
                   }}
                 >
                   {curr[0]}
@@ -90,41 +86,7 @@ class Information extends Component {
                     marginTop: 10,
                     marginRight: 5,
                     width: "13vw",
-                  }}
-                >
-                  {curr[1]}
-                  {/* {Object.keys(this.props.staticInfo).length === 0
-                    ? curr[1]
-                    : this.props.staticInfo.obj[curr[1]]} */}
-                </div>
-              </td>
-            </tr>
-          );
-        })}
-        {/* {Object.entries(informationStaticData).map((curr, idx, arr) => {
-          return (
-            <tr style={{ border: "1px solid grey" }}>
-              <td
-                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
-              >
-                <div
-                  style={{
-                    marginLeft: 5,
-                    marginTop: 10,
-                    marginRight: 5,
-                    width: "13vw",
-                  }}
-                >
-                  {curr[0]}
-                </div>
-              </td>
-              <td>
-                <div
-                  style={{
-                    marginLeft: 5,
-                    marginTop: 10,
-                    marginRight: 5,
-                    width: "13vw",
+                    fontSize: `1vw`,
                   }}
                 >
                   {curr[1]}
@@ -133,38 +95,6 @@ class Information extends Component {
             </tr>
           );
         })}
-        {Object.entries(informationDynamicData).map((curr, idx, arr) => {
-          return (
-            <tr style={{ border: "1px solid grey" }}>
-              <td
-                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
-              >
-                <div
-                  style={{
-                    marginLeft: 5,
-                    marginTop: 10,
-                    marginRight: 5,
-                    width: "13vw",
-                  }}
-                >
-                  {curr[0]}
-                </div>
-              </td>
-              <td>
-                <div
-                  style={{
-                    marginLeft: 5,
-                    marginTop: 10,
-                    marginRight: 5,
-                    width: "13vw",
-                  }}
-                >
-                  {curr[1]}
-                </div>
-              </td>
-            </tr>
-          );
-        })} */}
       </table>
     );
   }
