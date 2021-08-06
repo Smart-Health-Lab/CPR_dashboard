@@ -12,9 +12,11 @@ class ChildProcess extends Component {
           padding: 10,
         }}
       >
-        <div>{this.props.time}</div>
+        <div style={{ fontSize: `1vw` }}>{this.props.time}</div>
         <ChildProcessIcon />
-        <div style={{ marginLeft: 10 }}>{this.props.content}</div>
+        <div style={{ marginLeft: 10, fontSize: `1vw` }}>
+          {this.props.content}
+        </div>
       </div>
     );
   }

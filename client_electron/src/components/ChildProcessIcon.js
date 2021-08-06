@@ -4,7 +4,7 @@ import circle from "../data/circle.png";
 class ChildProcessIcon extends Component {
   render() {
     return (
-      <div style={{ marginLeft: 10 }}>
+      <div style={{ marginLeft: 10, fontSize: `1vw` }}>
         <img src={circle} style={{ width: 25, height: 25 }} />
       </div>
     );
