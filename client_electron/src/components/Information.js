@@ -20,7 +20,7 @@ class Information extends Component {
       "병원 도착 후 심전도 리듬": null,
       재세동: null,
       nonSustainedROSC: null,
-      epinephrine: null,
+      // epinephrine: null,
       amiodarone: null,
     };
   }
@@ -44,35 +44,18 @@ class Information extends Component {
         nextProps.staticInfo["병원 도착 후 심전도 리듬"],
       재세동: nextProps.staticInfo["재세동"],
       nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
-      epinephrine: nextProps.staticInfo["epinephrine"],
+      // epinephrine: nextProps.staticInfo["epinephrine"],
       amiodarone: nextProps.staticInfo["amiodarone"],
     });
   }
 
   componentWillMount() {
     this.setState({});
-    // this.setStaticInfo();
-    // this.setState({
-    //   "병원 전 초기 심전도 리듬":
-    //     this.props.staticInfo["병원 전 초기 심전도 리듬"],
-    //   "심정지 발생 시간": this.props.staticInfo["심정지 발생 시간"],
-    //   "119 도착시간": this.props.staticInfo["119 도착시간"],
-    //   witnessed: this.props.staticInfo["witnessed"],
-    //   bystanderCPR: this.props.staticInfo["bystanderCPR"],
-    //   "발생 장소": this.props.staticInfo["발생 장소"],
-    //   Airway: this.props.staticInfo["Airway"],
-    //   "병원 도착 후 심전도 리듬":
-    //     this.props.staticInfo["병원 도착 후 심전도 리듬"],
-    //   재세동: this.props.staticInfo["재세동"],
-    //   nonSustainedROSC: this.props.staticInfo["nonSustainedROSC"],
-    //   epinephrine: this.props.staticInfo["epinephrine"],
-    //   amiodarone: null,
-    // });
   }
 
   render() {
-    console.log("Information.js rendering ", this.state);
-    console.log("Information.js props ", this.props);
+    // console.log("Information.js rendering ", this.state);
+    // console.log("Information.js props ", this.props);
     // console.log("test -----> ", Object.keys(this.props.staticInfo).length);
 
     return (
