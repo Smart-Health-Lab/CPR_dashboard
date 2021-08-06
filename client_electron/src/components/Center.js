@@ -311,7 +311,13 @@ class Center extends Component {
             }}
           >
             <div>
-              <div style={{ display: "flex", flexDirection: "row" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginBottom: 10,
+                }}
+              >
                 <div style={{ marginRight: 10 }}>
                   <img
                     src={epinephrineImg}
@@ -334,9 +340,11 @@ class Center extends Component {
               </div>
               <Progress
                 percent={this.state.epinephrinePercentage}
-                steps={18}
+                steps={30}
                 showInfo={false}
                 type={"line"}
+                strokeWidth={`2vw`}
+                // style={{ fontSize: 40 }}
               />
             </div>
           </div>
