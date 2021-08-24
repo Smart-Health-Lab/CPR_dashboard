@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io, { Socket } from "socket.io-client";
-import { Layout } from "antd";
+import { Layout, Modal, Button } from "antd";
 import Moment from "react-moment";
 import Process from "./components/Process";
 import Information from "./components/Information";
@@ -19,6 +19,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      modalVisible: false,
+      loading: false,
       환자번호: null,
       이름: null,
       나이: null,
@@ -38,10 +40,16 @@ class App extends Component {
       epinephrineTimeOrigin: null,
       endTime: null,
       staticInfo: {},
+      isAlive: true,
+      deadTime: null,
+      ROSC: false,
     };
   }
 
   // 리셋함수 만들기 -> App.js 와 그 하위의 모든 컴포넌트들의 상태 리셋.
+  resetAllState = () => {
+    window.location.reload();
+  };
 
   addProcess = () => {
     socket.on("process", (obj) => {
@@ -77,6 +85,13 @@ class App extends Component {
           epinephrineTimeOrigin: obj.originalTime,
           epinephrine: true,
         });
+      } else if (obj.content === "사망") {
+        let curTime = new Date();
+        curTime = curTime.getTime();
+        this.setState({ isAlive: false, deadTime: curTime });
+        // this.resetAllState();
+      } else if (obj.content === "ROSC") {
+        this.setState({ modalVisible: true });
       }
 
       this.setState({
@@ -130,6 +145,9 @@ class App extends Component {
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
           </div>
         </Header>
+        <Modal visible={this.state.modalVisible} title="ROSC triggerd" centered>
+          <div>타이머 넣기</div>
+        </Modal>
         <Content style={{ backgroundColor: "white", height: "87vh" }}>
           <div style={{ display: "flex" }}>
             <div
@@ -152,6 +170,9 @@ class App extends Component {
                 restartTimeOrigin={this.state.restartTimeOrigin}
                 epinephrine={this.state.epinephrine}
                 epinephrineTimeOrigin={this.state.epinephrineTimeOrigin}
+                isAlive={this.state.isAlive}
+                deadTime={this.state.deadTime}
+                ROSC={this.state.ROSC}
               />
             </div>
             <Process processData={this.state.processData} />

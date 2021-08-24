@@ -362,6 +362,52 @@ class App extends Component {
             </Button>
           </div>
         </div>
+        <div style={{ display: "flex" }}>
+          <div style={{ margin: 20, fontSize: 15 }}>process</div>
+          <div style={{ display: "flex", margin: 10 }}>
+            <Button
+              size="large"
+              onClick={() => {
+                const date = new Date();
+                this.processEmit({
+                  originalTime: date.getTime(),
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "사망",
+                });
+              }}
+            >
+              사망
+            </Button>
+          </div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div style={{ margin: 20, fontSize: 15 }}>process</div>
+          <div style={{ display: "flex", margin: 10 }}>
+            <Button
+              size="large"
+              onClick={() => {
+                const date = new Date();
+                this.processEmit({
+                  originalTime: date.getTime(),
+                  time:
+                    date.getHours() +
+                    ":" +
+                    date.getMinutes() +
+                    ":" +
+                    date.getSeconds(),
+                  content: "ROSC",
+                });
+              }}
+            >
+              ROSC
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }

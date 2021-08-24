@@ -3,7 +3,9 @@ import React, { Component } from "react";
 class CircularProgress01 extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      strokeColor: "#0857ff",
+    };
   }
 
   render() {

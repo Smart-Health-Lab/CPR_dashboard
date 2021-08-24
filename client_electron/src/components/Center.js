@@ -26,6 +26,7 @@ class Center extends Component {
       epinephrinePercentage: 0,
       cumulativePressTime: 0,
       momentRendering: false,
+      epiColor: "#0857ff",
     };
   }
 
@@ -152,7 +153,7 @@ class Center extends Component {
   };
 
   render() {
-    // console.log("Center.js rendering", this.state);
+    console.log("Center.js rendering", this.state);
     // console.log(
     //   "---- cumulativePressTime -----",
     //   this.state.cumulativePressTime
@@ -230,6 +231,33 @@ class Center extends Component {
                 onChange={(time) => {
                   let curTime = new Date();
                   curTime = curTime.getTime();
+
+                  if (
+                    this.state.epinephrinePercentage > 88 &&
+                    this.state.epinephrinePercentage < 101
+                  ) {
+                    this.setState({ epiColor: "#f41a2a" });
+                  }
+                  if (this.props.isAlive === false) {
+                    curTime = this.props.deadTime;
+                    this.setState({
+                      currentTime: curTime,
+                      durationTime: Math.round(
+                        (curTime - this.state.startTimeOrigin) / 1000
+                      ),
+                      durationPressTime: Math.round(
+                        (curTime - this.state.restartTimeOrigin) / 1000
+                      ),
+                      durationStopTime: Math.round(
+                        (curTime - this.state.stopTimeOrigin) / 1000
+                      ),
+                      durationEpinephrineTime: Math.round(
+                        (curTime - this.state.epinephrineTimeOrigin) / 1000
+                      ),
+                      epinephrinePercentage:
+                        (this.state.durationEpinephrineTime / 180) * 100,
+                    });
+                  }
                   if (this.state.cprRestart) {
                     this.setState({
                       currentTime: curTime,
@@ -246,7 +274,7 @@ class Center extends Component {
                         (curTime - this.state.epinephrineTimeOrigin) / 1000
                       ),
                       epinephrinePercentage:
-                        100 - (this.state.durationEpinephrineTime / 180) * 100,
+                        (this.state.durationEpinephrineTime / 180) * 100,
                       momentRendering: true,
                     });
                   } else {
@@ -265,7 +293,7 @@ class Center extends Component {
                         (curTime - this.state.epinephrineTimeOrigin) / 1000
                       ),
                       epinephrinePercentage:
-                        100 - (this.state.durationEpinephrineTime / 180) * 100,
+                        (this.state.durationEpinephrineTime / 180) * 100,
                     });
                   }
                 }}
@@ -306,46 +334,50 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               height: "9vh",
               width: "33vw",
+              padding: 10,
+              marginBottom: 5,
+              backgroundColor: "#DFECEE",
             }}
           >
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  marginBottom: 10,
-                }}
-              >
-                <div style={{ marginRight: 10 }}>
-                  <img
-                    src={epinephrineImg}
-                    style={{
-                      width: "2vw",
-                      height: "2vh",
-                      marginTop: 0,
-                    }}
-                  />
-                </div>
-                <div style={{ fontSize: `1vw` }}>Epinephrine</div>
-                <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
-                  {this.state.epinephrine
-                    ? this.durationFunc(
-                        this.state.epinephrine,
-                        this.state.durationEpinephrineTime
-                      )
-                    : "00:00:00"}
-                </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginBottom: 10,
+              }}
+            >
+              <div style={{ marginRight: 10 }}>
+                <img
+                  src={epinephrineImg}
+                  style={{
+                    width: "2vw",
+                    height: "2vh",
+                    marginTop: 0,
+                  }}
+                />
               </div>
-              <Progress
-                percent={this.state.epinephrinePercentage}
-                steps={30}
-                showInfo={false}
-                type={"line"}
-                strokeWidth={`2vw`}
-              />
+              <div style={{ fontSize: `1vw` }}>Epinephrine</div>
+              <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
+                {this.state.epinephrine
+                  ? this.durationFunc(
+                      this.state.epinephrine,
+                      this.state.durationEpinephrineTime
+                    )
+                  : "00:00:00"}
+              </div>
             </div>
+            <Progress
+              percent={this.state.epinephrinePercentage}
+              steps={28}
+              showInfo={false}
+              strokeColor={this.state.epiColor}
+              type={"line"}
+              strokeWidth={`2.5vw`}
+            />
           </div>
           <div style={{ display: "flex", height: "20vh", width: "33vw" }}>
             <div
@@ -354,9 +386,10 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 alignItems: "center",
+                padding: 10,
                 marginRight: 5,
                 height: "20vh",
-                width: "16.5vw",
+                width: "16.35vw",
                 backgroundColor: "#DFECEE",
               }}
             >
@@ -386,8 +419,9 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 alignItems: "center",
+                padding: 10,
                 height: "20vh",
-                width: "16.5vw",
+                width: "16.35vw",
                 backgroundColor: "#DFECEE",
               }}
             >
