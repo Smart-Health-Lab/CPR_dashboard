@@ -8,6 +8,21 @@ class CircularProgress01 extends Component {
     };
   }
 
+  componentWillReceiveProps = () => {
+    if (
+      this.props.durationPressTime > 89 &&
+      this.props.durationPressTime < 10000
+    ) {
+      this.setState({
+        strokeColor: "#f41a2a",
+      });
+    } else {
+      this.setState({
+        strokeColor: "#0857ff",
+      });
+    }
+  };
+
   render() {
     // console.log("CircularProgress01.js rendering");
     // console.log("props", this.props);
@@ -43,7 +58,7 @@ class CircularProgress01 extends Component {
         <circle
           style={{
             fill: "none",
-            stroke: "blue",
+            stroke: this.state.strokeColor,
             strokeLinecap: "round",
             strokeLinejoin: "round",
             strokeDasharray: dashArray,

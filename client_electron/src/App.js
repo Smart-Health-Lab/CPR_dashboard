@@ -145,7 +145,15 @@ class App extends Component {
             <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
           </div>
         </Header>
-        <Modal visible={this.state.modalVisible} title="ROSC triggerd" centered>
+        <Modal
+          visible={this.state.modalVisible}
+          title="ROSC triggerd"
+          onOk={null}
+          onCancel={null}
+          okButtonProps={{ disabled: true }}
+          cancelButtonProps={{ disabled: true }}
+          centered
+        >
           <div>타이머 넣기</div>
         </Modal>
         <Content style={{ backgroundColor: "white", height: "87vh" }}>

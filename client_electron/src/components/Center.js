@@ -237,8 +237,13 @@ class Center extends Component {
                     this.state.epinephrinePercentage < 101
                   ) {
                     this.setState({ epiColor: "#f41a2a" });
+                  } else {
+                    this.setState({ epiColor: "#0857ff" });
                   }
-                  if (this.props.isAlive === false) {
+                  if (
+                    this.props.isAlive === false ||
+                    this.props.ROSC === true
+                  ) {
                     curTime = this.props.deadTime;
                     this.setState({
                       currentTime: curTime,

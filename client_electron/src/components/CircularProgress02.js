@@ -3,8 +3,25 @@ import React, { Component } from "react";
 class CircularProgress02 extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      strokeColor: "#0857ff",
+    };
   }
+
+  componentWillReceiveProps = () => {
+    if (
+      this.props.durationStopTime > 6 &&
+      this.props.durationStopTime < 10000
+    ) {
+      this.setState({
+        strokeColor: "#f41a2a",
+      });
+    } else {
+      this.setState({
+        strokeColor: "#0857ff",
+      });
+    }
+  };
 
   render() {
     // console.log("CircularProgress01.js rendering");
@@ -37,7 +54,7 @@ class CircularProgress02 extends Component {
         <circle
           style={{
             fill: "none",
-            stroke: "blue",
+            stroke: this.state.strokeColor,
             strokeLinecap: "round",
             strokeLinejoin: "round",
             strokeDasharray: dashArray,
