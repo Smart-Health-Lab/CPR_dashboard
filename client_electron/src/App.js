@@ -42,7 +42,7 @@ class App extends Component {
       staticInfo: {},
       isAlive: true,
       deadTime: null,
-      ROSC: false,
+      isROSC: false,
     };
   }
 
@@ -91,7 +91,9 @@ class App extends Component {
         this.setState({ isAlive: false, deadTime: curTime });
         // this.resetAllState();
       } else if (obj.content === "ROSC") {
-        this.setState({ modalVisible: true });
+        let curTime = new Date();
+        curTime = curTime.getTime();
+        this.setState({ isROSC: true, deadTime: curTime, modalVisible: true });
       }
 
       this.setState({
@@ -180,7 +182,7 @@ class App extends Component {
                 epinephrineTimeOrigin={this.state.epinephrineTimeOrigin}
                 isAlive={this.state.isAlive}
                 deadTime={this.state.deadTime}
-                ROSC={this.state.ROSC}
+                isROSC={this.state.isROSC}
               />
             </div>
             <Process processData={this.state.processData} />

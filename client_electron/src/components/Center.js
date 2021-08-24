@@ -233,16 +233,8 @@ class Center extends Component {
                   curTime = curTime.getTime();
 
                   if (
-                    this.state.epinephrinePercentage > 88 &&
-                    this.state.epinephrinePercentage < 101
-                  ) {
-                    this.setState({ epiColor: "#f41a2a" });
-                  } else {
-                    this.setState({ epiColor: "#0857ff" });
-                  }
-                  if (
                     this.props.isAlive === false ||
-                    this.props.ROSC === true
+                    this.props.isROSC === true
                   ) {
                     curTime = this.props.deadTime;
                     this.setState({
@@ -263,6 +255,16 @@ class Center extends Component {
                         (this.state.durationEpinephrineTime / 180) * 100,
                     });
                   }
+
+                  if (
+                    this.state.epinephrinePercentage > 88 &&
+                    this.state.epinephrinePercentage < 101
+                  ) {
+                    this.setState({ epiColor: "#f41a2a" });
+                  } else {
+                    this.setState({ epiColor: "#0857ff" });
+                  }
+
                   if (this.state.cprRestart) {
                     this.setState({
                       currentTime: curTime,
