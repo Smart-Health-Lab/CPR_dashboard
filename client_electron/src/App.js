@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import io, { Socket } from "socket.io-client";
 import { Layout, Modal, Button } from "antd";
 import Moment from "react-moment";
+import Countdown, { formatTimeDelta } from "react-countdown";
 import Process from "./components/Process";
 import Information from "./components/Information";
 import BodyImage from "./components/BodyImage";
@@ -63,7 +64,6 @@ class App extends Component {
 
   addProcess = () => {
     socket.on("process", (obj) => {
-      // console.log("시간 확인 ", obj);
       if (obj.content === "CPR 시작") {
         this.setState({
           startTime: obj.time,
@@ -167,13 +167,18 @@ class App extends Component {
         <Modal
           visible={this.state.modalVisible}
           title="ROSC triggerd"
+          date={"HH:MM:SS"}
           onOk={null}
           onCancel={null}
           okButtonProps={{ disabled: true }}
           cancelButtonProps={{ disabled: true }}
           centered
         >
-          <div>타이머 넣기</div>
+          <div style={{ marginLeft: 180 }}>
+            <Countdown date={Date.now() + 10000 * 6 * 20} zeroPadTime={2}>
+              <text>20분이 지났습니다</text>
+            </Countdown>
+          </div>
         </Modal>
         <Content style={{ backgroundColor: "white", height: "87vh" }}>
           <div style={{ display: "flex" }}>
