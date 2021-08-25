@@ -47,9 +47,19 @@ class App extends Component {
   }
 
   // 리셋함수 만들기 -> App.js 와 그 하위의 모든 컴포넌트들의 상태 리셋.
-  resetAllState = () => {
-    window.location.reload();
-  };
+
+  // resetAllState = () => {
+  //   return new Promise((resolve, reject) => {
+  //     window.location.reload();
+  //     // console.log(1);
+  //     resolve(true);
+  //   });
+  // };
+
+  // resetAndsetState = async (obj) => {
+  //   let result = await this.resetAllState();
+  //   return result;
+  // };
 
   addProcess = () => {
     socket.on("process", (obj) => {
@@ -88,12 +98,19 @@ class App extends Component {
       } else if (obj.content === "사망") {
         let curTime = new Date();
         curTime = curTime.getTime();
-        this.setState({ isAlive: false, deadTime: curTime });
+        this.setState({
+          isAlive: false,
+          deadTime: curTime,
+        });
         // this.resetAllState();
       } else if (obj.content === "ROSC") {
         let curTime = new Date();
         curTime = curTime.getTime();
-        this.setState({ isROSC: true, deadTime: curTime, modalVisible: true });
+        this.setState({
+          isROSC: true,
+          deadTime: curTime,
+          modalVisible: true,
+        });
       }
 
       this.setState({

@@ -153,7 +153,7 @@ class Center extends Component {
   };
 
   render() {
-    console.log("Center.js rendering", this.state);
+    // console.log("Center.js rendering", this.state);
     // console.log(
     //   "---- cumulativePressTime -----",
     //   this.state.cumulativePressTime
