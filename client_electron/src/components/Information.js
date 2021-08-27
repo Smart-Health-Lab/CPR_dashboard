@@ -59,6 +59,7 @@ class Information extends Component {
           border: "1px solid grey",
           width: "33vw",
           height: "50vh",
+          boxShadow: "2px 4px 2px gray",
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {

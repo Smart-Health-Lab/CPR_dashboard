@@ -183,6 +183,7 @@ class Center extends Component {
                 marginRight: 5,
                 width: "11vw",
                 backgroundColor: "#DFECEE",
+                boxShadow: "2px 4px 2px gray",
               }}
             >
               <div style={{ fontSize: `1vw` }}>지속 시간</div>
@@ -204,6 +205,7 @@ class Center extends Component {
                 marginRight: 5,
                 width: "11vw",
                 backgroundColor: "#DFECEE",
+                boxShadow: "2px 4px 2px gray",
               }}
             >
               <div style={{ fontSize: `1vw` }}>시작 시간</div>
@@ -221,6 +223,7 @@ class Center extends Component {
                 alignItems: "center",
                 width: "11vw",
                 backgroundColor: "#DFECEE",
+                boxShadow: "2px 4px 2px gray",
               }}
             >
               <div style={{ fontSize: `1vw` }}>현재 시간</div>
@@ -315,6 +318,7 @@ class Center extends Component {
               alignItems: "center",
               marginTop: 5,
               backgroundColor: "#DFECEE",
+              boxShadow: "2px 4px 2px gray",
             }}
           >
             <div style={{ fontSize: `1vw` }}>CCFR</div>
@@ -348,6 +352,7 @@ class Center extends Component {
               padding: 10,
               marginBottom: 5,
               backgroundColor: "#DFECEE",
+              boxShadow: "2px 4px 2px gray",
             }}
           >
             <div
@@ -398,6 +403,7 @@ class Center extends Component {
                 height: "20vh",
                 width: "16.35vw",
                 backgroundColor: "#DFECEE",
+                boxShadow: "2px 4px 2px gray",
               }}
             >
               <div style={{ fontSize: `1vw` }}>가슴압박 지속</div>
@@ -430,6 +436,7 @@ class Center extends Component {
                 height: "20vh",
                 width: "16.35vw",
                 backgroundColor: "#DFECEE",
+                boxShadow: "2px 4px 2px gray",
               }}
             >
               <div style={{ fontSize: `1vw` }}>가슴압박 중지</div>

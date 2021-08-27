@@ -166,7 +166,7 @@ class App extends Component {
         </Header>
         <Modal
           visible={this.state.modalVisible}
-          title="ROSC triggerd"
+          title="ROSC triggered"
           date={"HH:MM:SS"}
           onOk={null}
           onCancel={null}

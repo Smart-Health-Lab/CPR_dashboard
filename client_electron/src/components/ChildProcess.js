@@ -10,6 +10,7 @@ class ChildProcess extends Component {
           margin: 10,
           backgroundColor: "#DFECEE",
           padding: 10,
+          boxShadow: "2px 4px 2px gray",
         }}
       >
         <div style={{ fontSize: `1vw` }}>{this.props.time}</div>
