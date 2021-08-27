@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ChildProcessIcon from "../components/ChildProcessIcon";
 
+const shadowValues = "1px 3px 1px gray";
+
 class ChildProcess extends Component {
   render() {
     return (
@@ -10,7 +12,7 @@ class ChildProcess extends Component {
           margin: 10,
           backgroundColor: "#DFECEE",
           padding: 10,
-          boxShadow: "2px 4px 2px gray",
+          boxShadow: shadowValues,
         }}
       >
         <div style={{ fontSize: `1vw` }}>{this.props.time}</div>

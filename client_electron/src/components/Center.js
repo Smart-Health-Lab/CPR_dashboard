@@ -5,6 +5,8 @@ import CircularProgress01 from "./CircularProgress01";
 import CircularProgress02 from "./CircularProgress02";
 import epinephrineImg from "../data/epi_img.png";
 
+const shadowValues = "1px 3px 1px gray";
+
 class Center extends Component {
   constructor(props) {
     super(props);
@@ -183,7 +185,7 @@ class Center extends Component {
                 marginRight: 5,
                 width: "11vw",
                 backgroundColor: "#DFECEE",
-                boxShadow: "2px 4px 2px gray",
+                boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>지속 시간</div>
@@ -205,7 +207,7 @@ class Center extends Component {
                 marginRight: 5,
                 width: "11vw",
                 backgroundColor: "#DFECEE",
-                boxShadow: "2px 4px 2px gray",
+                boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>시작 시간</div>
@@ -223,7 +225,7 @@ class Center extends Component {
                 alignItems: "center",
                 width: "11vw",
                 backgroundColor: "#DFECEE",
-                boxShadow: "2px 4px 2px gray",
+                boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>현재 시간</div>
@@ -318,7 +320,7 @@ class Center extends Component {
               alignItems: "center",
               marginTop: 5,
               backgroundColor: "#DFECEE",
-              boxShadow: "2px 4px 2px gray",
+              boxShadow: shadowValues,
             }}
           >
             <div style={{ fontSize: `1vw` }}>CCFR</div>
@@ -352,7 +354,7 @@ class Center extends Component {
               padding: 10,
               marginBottom: 5,
               backgroundColor: "#DFECEE",
-              boxShadow: "2px 4px 2px gray",
+              boxShadow: shadowValues,
             }}
           >
             <div
@@ -383,12 +385,13 @@ class Center extends Component {
               </div>
             </div>
             <Progress
+              strokeLinecap="butt"
               percent={this.state.epinephrinePercentage}
-              steps={28}
+              // steps={28}
               showInfo={false}
               strokeColor={this.state.epiColor}
               type={"line"}
-              strokeWidth={`2.5vw`}
+              strokeWidth={`2vw`}
             />
           </div>
           <div style={{ display: "flex", height: "20vh", width: "33vw" }}>
@@ -403,7 +406,7 @@ class Center extends Component {
                 height: "20vh",
                 width: "16.35vw",
                 backgroundColor: "#DFECEE",
-                boxShadow: "2px 4px 2px gray",
+                boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>가슴압박 지속</div>
@@ -436,7 +439,7 @@ class Center extends Component {
                 height: "20vh",
                 width: "16.35vw",
                 backgroundColor: "#DFECEE",
-                boxShadow: "2px 4px 2px gray",
+                boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>가슴압박 중지</div>

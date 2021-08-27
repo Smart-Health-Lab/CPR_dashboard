@@ -6,6 +6,8 @@ import { informationDynamicData } from "../data/fakeData";
 // let endPoint = "http://localhost:3002";
 // let socket = io.connect(endPoint);
 
+const shadowValues = "1px 3px 1px gray";
+
 class Information extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,7 @@ class Information extends Component {
           border: "1px solid grey",
           width: "33vw",
           height: "50vh",
-          boxShadow: "2px 4px 2px gray",
+          boxShadow: shadowValues,
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {
