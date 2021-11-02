@@ -28,7 +28,7 @@ class Center extends Component {
       epinephrinePercentage: 0,
       cumulativePressTime: 0,
       momentRendering: false,
-      epiColor: "#0857ff",
+      epiColor: "#488eae",
     };
   }
 
@@ -173,7 +173,7 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
-              height: "35vh",
+              // height: "13vh",
             }}
           >
             <div
@@ -184,18 +184,23 @@ class Center extends Component {
                 alignItems: "center",
                 marginRight: 5,
                 width: "11vw",
-                backgroundColor: "#DFECEE",
-                boxShadow: shadowValues,
+                height: "13vh",
+                backgroundColor: "#3f5061",
+                // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw` }}>지속 시간</div>
-              <div style={{ fontSize: `1vw` }}>
-                {this.state.cprStart
-                  ? this.durationFunc(
+              <div style={{ fontSize: `1vw`, color: "white" }}>지속 시간</div>
+              <div style={{ fontSize: `1vw`, color: "white" }}>
+                {this.state.cprStart ? (
+                  <div style={{ fontSize: `2vw`, color: "white" }}>
+                    {this.durationFunc(
                       this.state.cprStart,
                       this.state.durationTime
-                    )
-                  : "00:00:00"}
+                    )}
+                  </div>
+                ) : (
+                  <div style={{ fontSize: `2vw` }}>{"00:00:00"}</div>
+                )}
               </div>
             </div>
             <div
@@ -206,15 +211,17 @@ class Center extends Component {
                 alignItems: "center",
                 marginRight: 5,
                 width: "11vw",
-                backgroundColor: "#DFECEE",
-                boxShadow: shadowValues,
+                height: "13vh",
+                backgroundColor: "#3f5061",
+                color: "white",
+                // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw` }}>시작 시간</div>
+              <div style={{ fontSize: `1vw`, color: "white" }}>시작 시간</div>
               {this.state.cprStart === false ? (
-                "00:00:00"
+                <div style={{ fontSize: `2vw` }}>{"00:00:00"}</div>
               ) : (
-                <div style={{ fontSize: `1vw` }}>{this.props.startTime}</div>
+                <div style={{ fontSize: `2vw` }}>{this.props.startTime}</div>
               )}
             </div>
             <div
@@ -224,14 +231,16 @@ class Center extends Component {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "11vw",
-                backgroundColor: "#DFECEE",
-                boxShadow: shadowValues,
+                height: "13vh",
+                backgroundColor: "#3f5061",
+                color: "white",
+                // boxShadow: shadowValues,
               }}
             >
               <div style={{ fontSize: `1vw` }}>현재 시간</div>
               <Moment
                 interval={1000}
-                style={{ fontSize: `1vw` }}
+                style={{ fontSize: `2vw`, color: "white" }}
                 format="HH:mm:ss"
                 onChange={(time) => {
                   let curTime = new Date();
@@ -319,12 +328,21 @@ class Center extends Component {
               justifyContent: "center",
               alignItems: "center",
               marginTop: 5,
-              backgroundColor: "#DFECEE",
-              boxShadow: shadowValues,
+              backgroundColor: "#3f5061",
+              // boxShadow: shadowValues,
             }}
           >
-            <div style={{ fontSize: `1vw` }}>CCFR</div>
-            <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
+            <div style={{ fontSize: `2vw`, fontWeight: 500, color: "white" }}>
+              CCFR
+            </div>
+            <div
+              style={{
+                fontSize: `2vw`,
+                fontWeight: 500,
+                marginLeft: 10,
+                color: "white",
+              }}
+            >
               {this.state.cprStart
                 ? this.props.initialStart
                   ? "100 %"
@@ -341,7 +359,7 @@ class Center extends Component {
           style={{
             width: "33vw",
             height: "40vh",
-            marginTop: 40,
+            marginTop: 10,
           }}
         >
           <div
@@ -353,8 +371,8 @@ class Center extends Component {
               width: "33vw",
               padding: 10,
               marginBottom: 5,
-              backgroundColor: "#DFECEE",
-              boxShadow: shadowValues,
+              backgroundColor: "#3f5061",
+              // boxShadow: shadowValues,
             }}
           >
             <div
@@ -364,18 +382,8 @@ class Center extends Component {
                 marginBottom: 10,
               }}
             >
-              <div style={{ marginRight: 10 }}>
-                <img
-                  src={epinephrineImg}
-                  style={{
-                    width: "2vw",
-                    height: "2vh",
-                    marginTop: 0,
-                  }}
-                />
-              </div>
-              <div style={{ fontSize: `1vw` }}>Epinephrine</div>
-              <div style={{ fontSize: `1vw`, marginLeft: 10 }}>
+              <div style={{ fontSize: `1vw`, color: "white" }}>Epinephrine</div>
+              <div style={{ fontSize: `1vw`, marginLeft: 10, color: "white" }}>
                 {this.state.epinephrine
                   ? this.durationFunc(
                       this.state.epinephrine,
@@ -385,7 +393,7 @@ class Center extends Component {
               </div>
             </div>
             <Progress
-              strokeLinecap="butt"
+              strokeLinecap="square"
               percent={this.state.epinephrinePercentage}
               // steps={28}
               showInfo={false}
@@ -405,11 +413,15 @@ class Center extends Component {
                 marginRight: 5,
                 height: "20vh",
                 width: "16.35vw",
-                backgroundColor: "#DFECEE",
-                boxShadow: shadowValues,
+                backgroundColor: "#3f5061",
+                // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw` }}>가슴압박 지속</div>
+              <div
+                style={{ fontSize: `1vw`, color: "white", marginBottom: 10 }}
+              >
+                가슴압박 지속
+              </div>
               <CircularProgress01
                 strokeWidth={"10"}
                 sqSize={"150"}
@@ -438,11 +450,15 @@ class Center extends Component {
                 padding: 10,
                 height: "20vh",
                 width: "16.35vw",
-                backgroundColor: "#DFECEE",
-                boxShadow: shadowValues,
+                backgroundColor: "#3f5061",
+                // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw` }}>가슴압박 중지</div>
+              <div
+                style={{ fontSize: `1vw`, color: "white", marginBottom: 10 }}
+              >
+                가슴압박 중지
+              </div>
               <CircularProgress02
                 strokeWidth={"10"}
                 sqSize={"150"}

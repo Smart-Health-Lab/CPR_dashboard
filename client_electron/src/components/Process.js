@@ -29,9 +29,11 @@ class Process extends Component {
     return (
       <div
         style={{
-          overflow: "scroll",
+          // overflow -> scroll, hidden
+          overflow: "auto",
           width: "33vw",
           height: "86vh",
+          backgroundColor: "#292a2d",
         }}
         ref={this.scrollRef}
       >

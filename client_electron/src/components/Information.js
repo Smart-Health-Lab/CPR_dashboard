@@ -21,9 +21,6 @@ class Information extends Component {
       Airway: null,
       "병원 도착 후 심전도 리듬": null,
       재세동: null,
-      nonSustainedROSC: null,
-      // epinephrine: null,
-      amiodarone: null,
     };
   }
 
@@ -41,8 +38,6 @@ class Information extends Component {
         nextProps.staticInfo["병원 도착 후 심전도 리듬"],
       재세동: nextProps.staticInfo["재세동"],
       nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
-      // epinephrine: nextProps.staticInfo["epinephrine"],
-      amiodarone: nextProps.staticInfo["amiodarone"],
     });
   }
 
@@ -59,24 +54,25 @@ class Information extends Component {
       <table
         style={{
           border: "1px solid grey",
-          width: "33vw",
-          height: "50vh",
-          boxShadow: shadowValues,
+          width: "26vw",
+          height: "35vh",
+          // boxShadow: shadowValues,
         }}
       >
         {Object.entries(this.state).map((curr, idx, arr) => {
           return (
             <tr style={{ border: "1px solid grey" }}>
               <td
-                style={{ border: "1px solid grey", backgroundColor: "#DFECEE" }}
+                style={{ border: "1px solid grey", backgroundColor: "#3f5061" }}
               >
                 <div
                   style={{
                     marginLeft: 5,
-                    marginTop: 10,
+                    // marginTop: 10,
                     marginRight: 5,
-                    width: "13vw",
+                    width: "10vw",
                     fontSize: `1vw`,
+                    color: "white",
                   }}
                 >
                   {curr[0]}
@@ -88,8 +84,9 @@ class Information extends Component {
                     marginLeft: 5,
                     marginTop: 10,
                     marginRight: 5,
-                    width: "13vw",
+                    width: "10vw",
                     fontSize: `1vw`,
+                    color: "white",
                   }}
                 >
                   {curr[1]}

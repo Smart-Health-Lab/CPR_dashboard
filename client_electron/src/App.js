@@ -149,19 +149,24 @@ class App extends Component {
         <Header
           style={{
             display: "flex",
-            height: "7vh",
-            width: "100vw",
+            height: "5.5vh",
+            // width: "100vw",
             justifyContent: "space-between",
-            backgroundColor: "#D5DFE1",
+            alignItems: "center",
+            backgroundColor: "#292a2d",
           }}
         >
-          <div style={{ fontSize: `1vw` }}>
+          <div style={{ fontSize: `1vw`, color: "#b0b5c0" }}>
             {" "}
             {this.state["환자번호"]} / {this.state["이름"]} /{" "}
             {this.state["나이"]} / {this.state["성별"]}{" "}
           </div>
           <div style={{ fontSize: `1vw` }}>
-            <Moment interval={1000} format="YYYY-MM-DD HH:mm:ss" />
+            <Moment
+              style={{ color: "#b0b5c0" }}
+              interval={1000}
+              format="YYYY-MM-DD HH:mm:ss"
+            />
           </div>
         </Header>
         <Modal
@@ -180,7 +185,7 @@ class App extends Component {
             </Countdown>
           </div>
         </Modal>
-        <Content style={{ backgroundColor: "white", height: "87vh" }}>
+        <Content style={{ backgroundColor: "#292a2d", height: "87vh" }}>
           <div style={{ display: "flex" }}>
             <div
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
@@ -214,13 +219,14 @@ class App extends Component {
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
             height: "6vh",
-            width: "100vw",
+            // width: "100vw",
             textAlign: "center",
-            backgroundColor: "#D5DFE1",
+            backgroundColor: "#292a2d",
           }}
         >
-          <div style={{ fontSize: `1vw` }}>SHL ©2021</div>
+          <div style={{ fontSize: "1vw", color: "#eef1f5" }}>SHL ©2021</div>
         </Footer>
       </Layout>
     );

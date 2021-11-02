@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import bodyImage from "../data/screenShot.png";
+import bodyImage from "../data/bodyImage.png";
 
 class BodyImage extends Component {
   render() {
@@ -7,8 +7,8 @@ class BodyImage extends Component {
       <img
         src={bodyImage}
         style={{
-          width: "33vw",
-          height: "30vh",
+          width: "26vw",
+          height: "48vh",
           marginTop: 10,
         }}
       />

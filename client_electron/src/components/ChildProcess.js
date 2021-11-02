@@ -10,14 +10,16 @@ class ChildProcess extends Component {
         style={{
           display: "flex",
           margin: 10,
-          backgroundColor: "#DFECEE",
+          backgroundColor: "#37393c",
           padding: 10,
-          boxShadow: shadowValues,
+          // boxShadow: shadowValues,
         }}
       >
-        <div style={{ fontSize: `1vw` }}>{this.props.time}</div>
+        <div style={{ color: "white", fontSize: `1vw`, fontWeight: 500 }}>
+          {this.props.time}
+        </div>
         <ChildProcessIcon />
-        <div style={{ marginLeft: 10, fontSize: `1vw` }}>
+        <div style={{ color: "white", marginLeft: 10, fontSize: `1vw` }}>
           {this.props.content}
         </div>
       </div>
