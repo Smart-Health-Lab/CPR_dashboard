@@ -14,11 +14,11 @@ class CircularProgress02 extends Component {
       this.props.durationStopTime < 10000
     ) {
       this.setState({
-        strokeColor: "#f41a2a",
+        strokeColor: "#d32d2d",
       });
     } else {
       this.setState({
-        strokeColor: "#0857ff",
+        strokeColor: "#373dd5",
       });
     }
   };
@@ -74,7 +74,7 @@ class CircularProgress02 extends Component {
           y="50%"
           dy=".3em"
           textAnchor="middle"
-          style={{ fontSize: `1vw` }}
+          style={{ fontSize: `1.5vw`, fill: "white" }}
         >
           {this.props.cprStop === true && this.props.cprRestart === false
             ? this.props.durationFunc(

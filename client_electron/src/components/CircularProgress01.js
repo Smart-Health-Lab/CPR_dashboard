@@ -4,21 +4,21 @@ class CircularProgress01 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      strokeColor: "#0857ff",
+      strokeColor: "#373dd5",
     };
   }
 
-  componentWillReceiveProps = () => {
+  componentWillReceiveProps = (nextProps) => {
     if (
       this.props.durationPressTime > 89 &&
       this.props.durationPressTime < 10000
     ) {
       this.setState({
-        strokeColor: "#f41a2a",
+        strokeColor: "#d32d2d",
       });
     } else {
       this.setState({
-        strokeColor: "#0857ff",
+        strokeColor: "#373dd5",
       });
     }
   };
@@ -78,7 +78,7 @@ class CircularProgress01 extends Component {
           y="50%"
           dy=".3em"
           textAnchor="middle"
-          style={{ fontSize: `1vw` }}
+          style={{ fontSize: `1.5vw`, fill: "white" }}
         >
           {this.props.cprRestart === true && this.props.cprStop === false
             ? this.props.durationFunc(

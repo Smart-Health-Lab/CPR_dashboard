@@ -12,15 +12,12 @@ class Information extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      "병원 전 초기 심전도 리듬": null,
       "심정지 발생 시간": null,
-      "119 도착시간": null,
       witnessed: null,
       bystanderCPR: null,
       "발생 장소": null,
       Airway: null,
       "병원 도착 후 심전도 리듬": null,
-      재세동: null,
     };
   }
 
@@ -54,8 +51,8 @@ class Information extends Component {
       <table
         style={{
           border: "1px solid grey",
-          width: "26vw",
-          height: "35vh",
+          width: "25vw",
+          height: "30vh",
           // boxShadow: shadowValues,
         }}
       >

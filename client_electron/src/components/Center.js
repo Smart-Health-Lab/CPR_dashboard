@@ -28,7 +28,9 @@ class Center extends Component {
       epinephrinePercentage: 0,
       cumulativePressTime: 0,
       momentRendering: false,
-      epiColor: "#488eae",
+      epiColor: "orange",
+      circularProgress01Back: "#3f5061",
+      circularProgress02Back: "#3f5061",
     };
   }
 
@@ -167,7 +169,7 @@ class Center extends Component {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "33vw",
+            width: "46vw",
           }}
         >
           <div
@@ -183,21 +185,21 @@ class Center extends Component {
                 justifyContent: "center",
                 alignItems: "center",
                 marginRight: 5,
-                width: "11vw",
-                height: "13vh",
+                width: "15vw",
+                height: "20vh",
                 backgroundColor: "#3f5061",
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw`, color: "white" }}>지속 시간</div>
-              <div style={{ fontSize: `1vw`, color: "white" }}>
+              <div style={{ fontSize: `1.3vw`, color: "white" }}>지속 시간</div>
+              <div
+                style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
+              >
                 {this.state.cprStart ? (
-                  <div style={{ fontSize: `2vw`, color: "white" }}>
-                    {this.durationFunc(
-                      this.state.cprStart,
-                      this.state.durationTime
-                    )}
-                  </div>
+                  this.durationFunc(
+                    this.state.cprStart,
+                    this.state.durationTime
+                  )
                 ) : (
                   <div style={{ fontSize: `2vw` }}>{"00:00:00"}</div>
                 )}
@@ -210,19 +212,30 @@ class Center extends Component {
                 justifyContent: "center",
                 alignItems: "center",
                 marginRight: 5,
-                width: "11vw",
-                height: "13vh",
+                width: "15vw",
+                height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw`, color: "white" }}>시작 시간</div>
-              {this.state.cprStart === false ? (
-                <div style={{ fontSize: `2vw` }}>{"00:00:00"}</div>
-              ) : (
-                <div style={{ fontSize: `2vw` }}>{this.props.startTime}</div>
-              )}
+              <div
+                style={{
+                  fontSize: `1.3vw`,
+                  color: "white",
+                }}
+              >
+                시작 시간
+              </div>
+              <div
+                style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
+              >
+                {this.state.cprStart === false ? (
+                  <div style={{ fontSize: `2vw` }}>{"00:00:00"}</div>
+                ) : (
+                  <div style={{ fontSize: `2vw` }}>{this.props.startTime}</div>
+                )}
+              </div>
             </div>
             <div
               style={{
@@ -230,22 +243,23 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "11vw",
-                height: "13vh",
+                width: "15vw",
+                height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1vw` }}>현재 시간</div>
+              <div style={{ fontSize: `1.3vw`, color: "white" }}>현재 시간</div>
               <Moment
                 interval={1000}
-                style={{ fontSize: `2vw`, color: "white" }}
+                style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
                 format="HH:mm:ss"
                 onChange={(time) => {
                   let curTime = new Date();
                   curTime = curTime.getTime();
 
+                  // end of process logic
                   if (
                     this.props.isAlive === false ||
                     this.props.isROSC === true
@@ -270,15 +284,17 @@ class Center extends Component {
                     });
                   }
 
+                  // Epinephrine progress bar color change
                   if (
                     this.state.epinephrinePercentage > 88 &&
                     this.state.epinephrinePercentage < 101
                   ) {
                     this.setState({ epiColor: "#f41a2a" });
                   } else {
-                    this.setState({ epiColor: "#0857ff" });
+                    this.setState({ epiColor: "orange" });
                   }
 
+                  // cpr start/restart or stop logic
                   if (this.state.cprRestart) {
                     this.setState({
                       currentTime: curTime,
@@ -297,7 +313,51 @@ class Center extends Component {
                       epinephrinePercentage:
                         (this.state.durationEpinephrineTime / 180) * 100,
                       momentRendering: true,
+                      circularProgress02Back: "#3f5061",
                     });
+                    if (
+                      this.state.durationPressTime > 89 &&
+                      this.state.durationPressTime < 10000
+                    ) {
+                      this.setState({
+                        circularProgress01Back: "#e54949",
+                      });
+                    } else {
+                      this.setState({
+                        circularProgress01Back: "#676dff",
+                      });
+                    }
+                  } else if (this.state.cprStop) {
+                    this.setState({
+                      currentTime: curTime,
+                      durationTime: Math.round(
+                        (curTime - this.state.startTimeOrigin) / 1000
+                      ),
+                      durationPressTime: Math.round(
+                        (curTime - this.state.restartTimeOrigin) / 1000
+                      ),
+                      durationStopTime: Math.round(
+                        (curTime - this.state.stopTimeOrigin) / 1000
+                      ),
+                      durationEpinephrineTime: Math.round(
+                        (curTime - this.state.epinephrineTimeOrigin) / 1000
+                      ),
+                      epinephrinePercentage:
+                        (this.state.durationEpinephrineTime / 180) * 100,
+                      circularProgress01Back: "#3f5061",
+                    });
+                    if (
+                      this.state.durationStopTime > 6 &&
+                      this.state.durationStopTime < 10000
+                    ) {
+                      this.setState({
+                        circularProgress02Back: "#e54949",
+                      });
+                    } else {
+                      this.setState({
+                        circularProgress02Back: "#676dff",
+                      });
+                    }
                   } else {
                     this.setState({
                       currentTime: curTime,
@@ -324,7 +384,8 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
-              height: "10vh",
+              width: "45.7vw",
+              height: "9.5vh",
               justifyContent: "center",
               alignItems: "center",
               marginTop: 5,
@@ -367,8 +428,8 @@ class Center extends Component {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              height: "9vh",
-              width: "33vw",
+              width: "45.7vw",
+              height: "12vh",
               padding: 10,
               marginBottom: 5,
               backgroundColor: "#3f5061",
@@ -379,11 +440,22 @@ class Center extends Component {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                marginBottom: 10,
+                // marginTop: 10,
+                // marginBottom: 15,
               }}
             >
-              <div style={{ fontSize: `1vw`, color: "white" }}>Epinephrine</div>
-              <div style={{ fontSize: `1vw`, marginLeft: 10, color: "white" }}>
+              <div style={{ fontSize: `1.5vw`, color: "white", marginTop: 5 }}>
+                Epinephrine
+              </div>
+              <div
+                style={{
+                  fontSize: `2vw`,
+                  fontWeight: "bold",
+                  marginLeft: 20,
+                  marginBottom: 10,
+                  color: "white",
+                }}
+              >
                 {this.state.epinephrine
                   ? this.durationFunc(
                       this.state.epinephrine,
@@ -402,23 +474,23 @@ class Center extends Component {
               strokeWidth={`2vw`}
             />
           </div>
-          <div style={{ display: "flex", height: "20vh", width: "33vw" }}>
+          <div style={{ display: "flex" }}>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 alignItems: "center",
-                padding: 10,
+                padding: 20,
                 marginRight: 5,
-                height: "20vh",
-                width: "16.35vw",
-                backgroundColor: "#3f5061",
+                height: "38vh",
+                width: "22.65vw",
+                backgroundColor: this.state.circularProgress01Back,
                 // boxShadow: shadowValues,
               }}
             >
               <div
-                style={{ fontSize: `1vw`, color: "white", marginBottom: 10 }}
+                style={{ fontSize: `1.5vw`, color: "white", marginBottom: 10 }}
               >
                 가슴압박 지속
               </div>
@@ -447,15 +519,15 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 alignItems: "center",
-                padding: 10,
-                height: "20vh",
-                width: "16.35vw",
-                backgroundColor: "#3f5061",
+                padding: 20,
+                width: "22.65vw",
+                height: "38vh",
+                backgroundColor: this.state.circularProgress02Back,
                 // boxShadow: shadowValues,
               }}
             >
               <div
-                style={{ fontSize: `1vw`, color: "white", marginBottom: 10 }}
+                style={{ fontSize: `1.5vw`, color: "white", marginBottom: 10 }}
               >
                 가슴압박 중지
               </div>

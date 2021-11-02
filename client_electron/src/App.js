@@ -145,7 +145,7 @@ class App extends Component {
     // console.log("App.js 렌더링 ", this.state);
 
     return (
-      <Layout style={{ height: "100%" }}>
+      <Layout style={{ height: "100vh", width: "100vw" }}>
         <Header
           style={{
             display: "flex",
@@ -154,6 +154,7 @@ class App extends Component {
             justifyContent: "space-between",
             alignItems: "center",
             backgroundColor: "#292a2d",
+            borderBottom: "solid grey",
           }}
         >
           <div style={{ fontSize: `1vw`, color: "#b0b5c0" }}>
@@ -185,7 +186,7 @@ class App extends Component {
             </Countdown>
           </div>
         </Modal>
-        <Content style={{ backgroundColor: "#292a2d", height: "87vh" }}>
+        <Content style={{ backgroundColor: "#292a2d", height: "84.5vh" }}>
           <div style={{ display: "flex" }}>
             <div
               style={{ display: "flex", flexDirection: "column", margin: 10 }}
@@ -220,10 +221,11 @@ class App extends Component {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "6vh",
+            height: "10vh",
             // width: "100vw",
             textAlign: "center",
             backgroundColor: "#292a2d",
+            borderTop: "solid grey",
           }}
         >
           <div style={{ fontSize: "1vw", color: "#eef1f5" }}>SHL ©2021</div>

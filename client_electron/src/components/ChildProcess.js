@@ -18,7 +18,7 @@ class ChildProcess extends Component {
         <div style={{ color: "white", fontSize: `1vw`, fontWeight: 500 }}>
           {this.props.time}
         </div>
-        <ChildProcessIcon />
+        <ChildProcessIcon content={this.props.content} />
         <div style={{ color: "white", marginLeft: 10, fontSize: `1vw` }}>
           {this.props.content}
         </div>
