@@ -59,7 +59,7 @@ class CircularProgress01 extends Component {
           style={{
             fill: "none",
             stroke: this.state.strokeColor,
-            strokeLinecap: "round",
+            strokeLinecap: "square",
             strokeLinejoin: "round",
             strokeDasharray: dashArray,
             strokeDashoffset: dashOffset,
