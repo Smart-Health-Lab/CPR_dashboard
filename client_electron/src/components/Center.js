@@ -484,7 +484,7 @@ class Center extends Component {
                 padding: 30,
                 marginRight: 5,
                 height: "38vh",
-                width: "22.65vw",
+                width: "22.6vw",
                 backgroundColor: this.state.circularProgress01Back,
                 // boxShadow: shadowValues,
               }}
@@ -520,7 +520,7 @@ class Center extends Component {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 padding: 30,
-                width: "22.65vw",
+                width: "22.6vw",
                 height: "38vh",
                 backgroundColor: this.state.circularProgress02Back,
                 // boxShadow: shadowValues,
