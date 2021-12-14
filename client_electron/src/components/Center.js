@@ -191,7 +191,7 @@ class Center extends Component {
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1.3vw`, color: "white" }}>지속 시간</div>
+              <div style={{ fontSize: `1.3vw`, color: "white" }}>지속 시간</div>
               <div
                 style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
               >
@@ -225,7 +225,7 @@ class Center extends Component {
                   color: "white",
                 }}
               >
-                시작 시간
+                시작 시간
               </div>
               <div
                 style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
@@ -250,7 +250,7 @@ class Center extends Component {
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1.3vw`, color: "white" }}>현재 시간</div>
+              <div style={{ fontSize: `1.3vw`, color: "white" }}>현재 시간</div>
               <Moment
                 interval={1000}
                 style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
