@@ -51,7 +51,7 @@ class Information extends Component {
       <table
         style={{
           border: "1px solid grey",
-          width: "25vw",
+          width: "28vw",
           height: "30vh",
           // boxShadow: shadowValues,
         }}
