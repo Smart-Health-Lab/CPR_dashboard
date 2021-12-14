@@ -13,28 +13,28 @@ class Information extends Component {
     super(props);
     this.state = {
       "심정지 발생 시간": null,
-      witnessed: null,
-      bystanderCPR: null,
+      "Witnessed": null,
+      "Bystander CPR": null,
       "발생 장소": null,
-      Airway: null,
-      "병원 도착 후 심전도 리듬": null,
+      "Airway": null,
+      "병원 도착 후 첫 리듬": null,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      "병원 전 초기 심전도 리듬":
-        nextProps.staticInfo["병원 전 초기 심전도 리듬"],
+      // "병원 전 초기 심전도 리듬":
+      //   nextProps.staticInfo["병원 전 초기 심전도 리듬"],
       "심정지 발생 시간": nextProps.staticInfo["심정지 발생 시간"],
-      "119 도착시간": nextProps.staticInfo["119 도착시간"],
+      // "119 도착시간": nextProps.staticInfo["119 도착시간"],
       witnessed: nextProps.staticInfo["witnessed"],
       bystanderCPR: nextProps.staticInfo["bystanderCPR"],
       "발생 장소": nextProps.staticInfo["발생 장소"],
       Airway: nextProps.staticInfo["Airway"],
-      "병원 도착 후 심전도 리듬":
+      "병원 도착 후 첫 리듬":
         nextProps.staticInfo["병원 도착 후 심전도 리듬"],
-      재세동: nextProps.staticInfo["재세동"],
-      nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
+      // 재세동: nextProps.staticInfo["재세동"],
+      // nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
     });
   }
 
@@ -68,7 +68,7 @@ class Information extends Component {
                     // marginTop: 10,
                     marginRight: 5,
                     width: "12vw",
-                    fontSize: `1vw`,
+                    fontSize: `1.4vw`,
                     color: "white",
                   }}
                 >

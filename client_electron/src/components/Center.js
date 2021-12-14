@@ -191,7 +191,7 @@ class Center extends Component {
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1.3vw`, color: "white" }}>지속 시간</div>
+              <div style={{ fontSize: `2.0vw`, color: "white" }}>지속 시간</div>
               <div
                 style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
               >
@@ -221,7 +221,7 @@ class Center extends Component {
             >
               <div
                 style={{
-                  fontSize: `1.3vw`,
+                  fontSize: `2.0vw`,
                   color: "white",
                 }}
               >
@@ -250,7 +250,7 @@ class Center extends Component {
                 // boxShadow: shadowValues,
               }}
             >
-              <div style={{ fontSize: `1.3vw`, color: "white" }}>현재 시간</div>
+              <div style={{ fontSize: `2.0vw`, color: "white" }}>현재 시간</div>
               <Moment
                 interval={1000}
                 style={{ fontSize: `2vw`, fontWeight: "bold", color: "white" }}
@@ -393,12 +393,12 @@ class Center extends Component {
               // boxShadow: shadowValues,
             }}
           >
-            <div style={{ fontSize: `2vw`, fontWeight: 500, color: "white" }}>
+            <div style={{ fontSize: `2.5vw`, fontWeight: 500, color: "white" }}>
               CCFR
             </div>
             <div
               style={{
-                fontSize: `2vw`,
+                fontSize: `2.5vw`,
                 fontWeight: 500,
                 marginLeft: 10,
                 color: "white",
@@ -444,7 +444,7 @@ class Center extends Component {
                 // marginBottom: 15,
               }}
             >
-              <div style={{ fontSize: `1.5vw`, color: "white", marginTop: 5 }}>
+              <div style={{ fontSize: `2.0vw`, color: "white", marginTop: -5 }}>
                 Epinephrine
               </div>
               <div
@@ -490,7 +490,7 @@ class Center extends Component {
               }}
             >
               <div
-                style={{ fontSize: `1.5vw`, color: "white", marginBottom: 10 }}
+                style={{ fontSize: `2.0vw`, color: "white", marginBottom: 10 }}
               >
                 가슴압박 지속
               </div>
@@ -527,7 +527,7 @@ class Center extends Component {
               }}
             >
               <div
-                style={{ fontSize: `1.5vw`, color: "white", marginBottom: 10 }}
+                style={{ fontSize: `2.0vw`, color: "white", marginBottom: 10 }}
               >
                 가슴압박 중지
               </div>
