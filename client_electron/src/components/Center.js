@@ -384,7 +384,7 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
-              width: "45.7vw",
+              width: "45.3vw",
               height: "9.5vh",
               justifyContent: "center",
               alignItems: "center",
@@ -428,7 +428,7 @@ class Center extends Component {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: "45.7vw",
+              width: "45.3vw",
               height: "12vh",
               padding: 10,
               marginBottom: 5,

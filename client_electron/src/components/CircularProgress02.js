@@ -74,7 +74,7 @@ class CircularProgress02 extends Component {
           y="50%"
           dy=".3em"
           textAnchor="middle"
-          style={{ fontSize: `1vw`, fill: "white" }}
+          style={{ fontSize: `0.7vw`, fill: "white" }}
         >
           {this.props.cprStop === true && this.props.cprRestart === false
             ? this.props.durationFunc(
