@@ -67,7 +67,7 @@ class Information extends Component {
                     marginLeft: 5,
                     // marginTop: 10,
                     marginRight: 5,
-                    width: "10vw",
+                    width: "12vw",
                     fontSize: `1vw`,
                     color: "white",
                   }}
