@@ -20,7 +20,7 @@ class BodyImage extends Component {
 
   bodyPointLegend = (name, pointColor) => {
     let border = null;
-    if ((name === "ETI") | (name === "EGD")) {
+    if ((name === "Cricothyrotomy") | (name === "Tracheostomy")) {
       border = "2px solid";
     }
     return (
@@ -32,15 +32,15 @@ class BodyImage extends Component {
             height: "0.8vh",
             borderRadius: "50%",
             border: border,
-            borderBlockColor: "black",
+            borderBlockColor: "#868686",
           }}
         />
         <text
           style={{
             color: "white",
             fontSize: "1.0vw",
-            marginTop: -11,
-            marginLeft: 5,
+            marginTop: -20,
+            marginLeft: 15,
           }}
         >
           {name}
@@ -51,7 +51,7 @@ class BodyImage extends Component {
 
   bodyPoint = (name, color, pointStatus, top, left) => {
     let border = null;
-    if ((name === "ETI") | (name === "EGD")) {
+    if ((name === "Cricothyrotomy") | (name === "Tracheostomy")) {
       border = "2px solid";
     }
     return (
@@ -73,7 +73,7 @@ class BodyImage extends Component {
             borderRadius: "50%",
             borderColor: "#868686",
             border: border,
-            borderBlockColor: "black",
+            borderBlockColor: "#868686",
           }}
         />
         {/* <text
@@ -139,20 +139,20 @@ class BodyImage extends Component {
         {this.bodyPoint("A-line", "#F86161", "visible", 185, 650)}
         {this.bodyPoint("A-line", "#F86161", "visible", 250, 490)}
         {this.bodyPoint("A-line", "#F86161", "visible", 235, 540)}
-        {this.bodyPoint("ETI", "#FFFFFF", "visible", -180, 520)}
-        {this.bodyPoint("EGD", "#FFFFFF", "visible", -195, 520)}
-        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -180, 520)}
-        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -170, 520)}
+        {this.bodyPoint("ETI", "#868686", "visible", -180, 520)}
+        {this.bodyPoint("EGD", "#868686", "visible", -195, 520)}
+        {this.bodyPoint("Cricothyrotomy", "#FFFFFF", "visible", -180, 520)}
+        {this.bodyPoint("Cricothyrotomy", "#FFFFFF", "visible", -170, 520)}
 
         <div style={{ position: "relative", top: 170 }}>
           {this.bodyPointLegend("IV", "#f5a623")}
           {this.bodyPointLegend("IO", "#61A7C7")}
           {this.bodyPointLegend("C-line", "#A0A3FF")}
           {this.bodyPointLegend("A-line", "#F86161")}
-          {this.bodyPointLegend("ETI", "#FFFFFF")}
-          {this.bodyPointLegend("EGD", "#FFFFFF")}
-          {this.bodyPointLegend("Cricothyrotomy", "#868686")}
-          {this.bodyPointLegend("Tracheostomy", "#868686")}
+          {this.bodyPointLegend("ETI", "#868686")}
+          {this.bodyPointLegend("EGD", "#868686")}
+          {this.bodyPointLegend("Cricothyrotomy", "#FFFFFF")}
+          {this.bodyPointLegend("Tracheostomy", "#FFFFFF")}
         </div>
       </div>
     );
