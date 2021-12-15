@@ -19,6 +19,10 @@ class BodyImage extends Component {
   }
 
   bodyPointLegend = (name, pointColor) => {
+    let border = null;
+    if ((name === "ETI") | (name === "EGD")) {
+      border = "2px solid";
+    }
     return (
       <div style={{ display: "flex", marginBottom: 6 }}>
         <div
@@ -27,6 +31,8 @@ class BodyImage extends Component {
             width: "0.6vw",
             height: "0.8vh",
             borderRadius: "50%",
+            border: border,
+            borderBlockColor: "black",
           }}
         />
         <text
@@ -44,6 +50,10 @@ class BodyImage extends Component {
   };
 
   bodyPoint = (name, color, pointStatus, top, left) => {
+    let border = null;
+    if ((name === "ETI") | (name === "EGD")) {
+      border = "2px solid";
+    }
     return (
       <div
         style={{
@@ -61,6 +71,9 @@ class BodyImage extends Component {
             width: "0.5vw",
             height: "0.7vh",
             borderRadius: "50%",
+            borderColor: "#868686",
+            border: border,
+            borderBlockColor: "black",
           }}
         />
         {/* <text
@@ -126,8 +139,8 @@ class BodyImage extends Component {
         {this.bodyPoint("A-line", "#F86161", "visible", 130, 350)}
         {this.bodyPoint("A-line", "#F86161", "visible", 155, 245)}
         {this.bodyPoint("A-line", "#F86161", "visible", 145, 290)}
-        {this.bodyPoint("ETI", "blue", "visible", -105, 268)}
-        {this.bodyPoint("EGD", "blue", "visible", -115, 268)}
+        {this.bodyPoint("ETI", "#FFFFFF", "visible", -105, 268)}
+        {this.bodyPoint("EGD", "#FFFFFF", "visible", -114, 268)}
         {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -105, 268)}
         {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -103, 268)}
 
@@ -136,8 +149,8 @@ class BodyImage extends Component {
           {this.bodyPointLegend("IO", "#61A7C7")}
           {this.bodyPointLegend("C-line", "#A0A3FF")}
           {this.bodyPointLegend("A-line", "#F86161")}
-          {this.bodyPointLegend("ETI", "blue")}
-          {this.bodyPointLegend("EGD", "blue")}
+          {this.bodyPointLegend("ETI", "#FFFFFF")}
+          {this.bodyPointLegend("EGD", "#FFFFFF")}
           {this.bodyPointLegend("Cricothyrotomy", "#868686")}
           {this.bodyPointLegend("Tracheostomy", "#868686")}
         </div>
