@@ -119,30 +119,30 @@ class BodyImage extends Component {
           </div>
         </div>
         {/* 순서 : 위에서부터 차례대로 오른쪽 -> 왼쪽 */}
-        {this.bodyPoint("IV", "#f5a623", "visible", 230, 195)}
-        {this.bodyPoint("IV", "#f5a623", "visible", 220, 340)}
-        {this.bodyPoint("IV", "#f5a623", "visible", 290, 180)}
-        {this.bodyPoint("IV", "#f5a623", "visible", 280, 355)}
-        {this.bodyPoint("IV", "#f5a623", "visible", 520, 240)}
-        {this.bodyPoint("IV", "#f5a623", "visible", 510, 290)}
-        {this.bodyPoint("IO", "#61A7C7", "visible", 85, 200)}
-        {this.bodyPoint("IO", "#61A7C7", "visible", 75, 335)}
-        {this.bodyPoint("IO", "#61A7C7", "visible", 380, 240)}
-        {this.bodyPoint("IO", "#61A7C7", "visible", 370, 295)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 10, 255)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 1, 280)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 15, 245)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 6, 290)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 180, 245)}
-        {this.bodyPoint("C-line", "#A0A3FF", "visible", 170, 290)}
-        {this.bodyPoint("A-line", "#F86161", "visible", 140, 185)}
-        {this.bodyPoint("A-line", "#F86161", "visible", 130, 350)}
-        {this.bodyPoint("A-line", "#F86161", "visible", 155, 245)}
-        {this.bodyPoint("A-line", "#F86161", "visible", 145, 290)}
-        {this.bodyPoint("ETI", "#FFFFFF", "visible", -105, 268)}
-        {this.bodyPoint("EGD", "#FFFFFF", "visible", -114, 268)}
-        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -105, 268)}
-        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -103, 268)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 350, 400)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 335, 635)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 440, 375)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 425, 660)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 840, 470)}
+        {this.bodyPoint("IV", "#f5a623", "visible", 825, 560)}
+        {this.bodyPoint("IO", "#61A7C7", "visible", 120, 410)}
+        {this.bodyPoint("IO", "#61A7C7", "visible", 105, 625)}
+        {this.bodyPoint("IO", "#61A7C7", "visible", 630, 475)}
+        {this.bodyPoint("IO", "#61A7C7", "visible", 615, 555)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", 0, 495)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", -15, 540)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", 15, 480)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", 0, 555)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", 280, 490)}
+        {this.bodyPoint("C-line", "#A0A3FF", "visible", 265, 540)}
+        {this.bodyPoint("A-line", "#F86161", "visible", 200, 385)}
+        {this.bodyPoint("A-line", "#F86161", "visible", 185, 650)}
+        {this.bodyPoint("A-line", "#F86161", "visible", 250, 490)}
+        {this.bodyPoint("A-line", "#F86161", "visible", 235, 540)}
+        {this.bodyPoint("ETI", "#FFFFFF", "visible", -180, 520)}
+        {this.bodyPoint("EGD", "#FFFFFF", "visible", -195, 520)}
+        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -180, 520)}
+        {this.bodyPoint("Cricothyrotomy", "#868686", "visible", -170, 520)}
 
         <div style={{ position: "relative", top: 170 }}>
           {this.bodyPointLegend("IV", "#f5a623")}
