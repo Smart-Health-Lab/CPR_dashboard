@@ -135,6 +135,10 @@ class App extends Component {
     });
   };
 
+  refreshPage = () => {
+    window.location.reload(false);
+  };
+
   componentWillMount() {
     // socket.emit("roomjoin", electronId);
     this.addProcess();
@@ -162,6 +166,7 @@ class App extends Component {
             {this.state["환자번호"]} / {this.state["이름"]} /{" "}
             {this.state["나이"]} / {this.state["성별"]}{" "}
           </div>
+          <Button onClick={this.refreshPage}>Refresh</Button>
           <div style={{ fontSize: `1vw` }}>
             <Moment
               style={{ color: "#b0b5c0" }}
@@ -172,7 +177,7 @@ class App extends Component {
         </Header>
         <Modal
           visible={this.state.modalVisible}
-          title="ROSC triggered"
+          title="ROSC"
           date={"HH:MM:SS"}
           onOk={null}
           onCancel={null}

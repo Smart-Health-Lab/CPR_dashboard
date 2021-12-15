@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
+import moment from "moment";
 import { Progress } from "antd";
 import CircularProgress01 from "./CircularProgress01";
 import CircularProgress02 from "./CircularProgress02";
@@ -28,7 +29,7 @@ class Center extends Component {
       epinephrinePercentage: 0,
       cumulativePressTime: 0,
       momentRendering: false,
-      epiColor: "orange",
+      epiColor: "#488EAE",
       circularProgress01Back: "#3f5061",
       circularProgress02Back: "#3f5061",
     };
@@ -119,19 +120,19 @@ class Center extends Component {
   durationFunc = (checkState, durationTime) => {
     if (checkState && durationTime < 60) {
       return durationTime > 10
-        ? `00:00:${durationTime}`
-        : `00:00:0${durationTime}`;
+        ? moment(`00:00:${durationTime}`, "HH:mm:ss").format("HH:mm:ss")
+        : moment(`00:00:0${durationTime}`, "HH:mm:ss").format("HH:mm:ss");
     } else if (checkState && durationTime >= 60 && durationTime < 3600) {
       let seconds = durationTime % 60;
       let mins = (durationTime - seconds) / 60;
 
       return mins > 10
         ? seconds > 10
-          ? `00:${mins}:${seconds}`
-          : `00:${mins}:0${seconds}`
+          ? moment(`00:${mins}:${seconds}`, "HH:mm:ss").format("HH:mm:ss")
+          : moment(`00:${mins}:0${seconds}`, "HH:mm:ss").format("HH:mm:ss")
         : seconds > 10
-        ? `00:0${mins}:${seconds}`
-        : `00:0${mins}:0${seconds}`;
+        ? moment(`00:0${mins}:${seconds}`, "HH:mm:ss").format("HH:mm:ss")
+        : moment(`00:0${mins}:0${seconds}`, "HH:mm:ss").format("HH:mm:ss");
     } else if (checkState && durationTime >= 3600 && durationTime < 86400) {
       let seconds = durationTime % 60;
       let preMins = Math.floor(durationTime / 60);
@@ -141,18 +142,32 @@ class Center extends Component {
       return hours > 10
         ? mins > 10
           ? seconds > 10
-            ? `${hours}:${mins}:${seconds}`
-            : `${hours}:${mins}:0${seconds}`
+            ? moment(`${hours}:${mins}:${seconds}`, "HH:mm:ss").format(
+                "HH:mm:ss"
+              )
+            : moment(`${hours}:${mins}:0${seconds}`, "HH:mm:ss").format(
+                "HH:mm:ss"
+              )
           : seconds > 10
-          ? `${hours}:0${mins}:${seconds}`
-          : `${hours}:0${mins}:0${seconds}`
+          ? moment(`${hours}:0${mins}:${seconds}`, "HH:mm:ss").format(
+              "HH:mm:ss"
+            )
+          : moment(`${hours}:0${mins}:0${seconds}`, "HH:mm:ss").format(
+              "HH:mm:ss"
+            )
         : mins > 10
         ? seconds > 10
-          ? `0${hours}:${mins}:${seconds}`
-          : `0${hours}:${mins}:0${seconds}`
+          ? moment(`0${hours}:${mins}:${seconds}`, "HH:mm:ss").format(
+              "HH:mm:ss"
+            )
+          : moment(`0${hours}:${mins}:0${seconds}`, "HH:mm:ss").format(
+              "HH:mm:ss"
+            )
         : seconds > 10
-        ? `0${hours}:0${mins}:${seconds}`
-        : `0${hours}:0${mins}:0${seconds}`;
+        ? moment(`0${hours}:0${mins}:${seconds}`, "HH:mm:ss").format("HH:mm:ss")
+        : moment(`0${hours}:0${mins}:0${seconds}`, "HH:mm:ss").format(
+            "HH:mm:ss"
+          );
     }
   };
 
@@ -162,6 +177,7 @@ class Center extends Component {
     //   "---- cumulativePressTime -----",
     //   this.state.cumulativePressTime
     // );
+    console.log();
 
     return (
       <>
@@ -185,7 +201,7 @@ class Center extends Component {
                 justifyContent: "center",
                 alignItems: "center",
                 marginRight: 5,
-                width: "15vw",
+                width: "14.95vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 // boxShadow: shadowValues,
@@ -212,7 +228,7 @@ class Center extends Component {
                 justifyContent: "center",
                 alignItems: "center",
                 marginRight: 5,
-                width: "15vw",
+                width: "14.95vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
@@ -243,7 +259,7 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "15vw",
+                width: "14.95vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
@@ -384,7 +400,7 @@ class Center extends Component {
           <div
             style={{
               display: "flex",
-              width: "45.3vw",
+              width: "45.5vw",
               height: "9.5vh",
               justifyContent: "center",
               alignItems: "center",
@@ -428,7 +444,7 @@ class Center extends Component {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              width: "45.3vw",
+              width: "45.5vw",
               height: "12vh",
               padding: 10,
               marginBottom: 5,

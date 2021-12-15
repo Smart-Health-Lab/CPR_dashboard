@@ -1,6 +1,7 @@
 import { Component } from "react";
 import io, { Socket } from "socket.io-client";
 import { Input, Button } from "antd";
+import moment from "moment";
 import "./App.css";
 
 let endPoint = "http://localhost:3002";
@@ -210,12 +211,14 @@ class App extends Component {
                   // startHours: date.getHours(),
                   // startMins: date.getMinutes(),
                   // startSeconds: date.getSeconds(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "CPR 시작",
                 });
               }}
@@ -233,12 +236,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "가슴압박 중지",
                 });
               }}
@@ -256,12 +261,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "가슴압박 재시작",
                 });
               }}
@@ -279,12 +286,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "nonSustainedROSC",
                 });
               }}
@@ -302,12 +311,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "Epinephrine",
                 });
               }}
@@ -325,12 +336,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "amiodarone",
                 });
               }}
@@ -348,12 +361,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "재세동",
                 });
               }}
@@ -371,12 +386,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "사망",
                 });
               }}
@@ -394,12 +411,14 @@ class App extends Component {
                 const date = new Date();
                 this.processEmit({
                   originalTime: date.getTime(),
-                  time:
+                  time: moment(
                     date.getHours() +
-                    ":" +
-                    date.getMinutes() +
-                    ":" +
-                    date.getSeconds(),
+                      ":" +
+                      date.getMinutes() +
+                      ":" +
+                      date.getSeconds(),
+                    "HH:mm:ss"
+                  ).format("HH:mm:ss"),
                   content: "ROSC",
                 });
               }}
