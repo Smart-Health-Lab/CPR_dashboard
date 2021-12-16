@@ -276,29 +276,29 @@ class Center extends Component {
                   curTime = curTime.getTime();
 
                   // end of process logic
-                  if (
-                    this.props.isAlive === false ||
-                    this.props.isROSC === true
-                  ) {
-                    curTime = this.props.deadTime;
-                    this.setState({
-                      currentTime: curTime,
-                      durationTime: Math.round(
-                        (curTime - this.state.startTimeOrigin) / 1000
-                      ),
-                      durationPressTime: Math.round(
-                        (curTime - this.state.restartTimeOrigin) / 1000
-                      ),
-                      durationStopTime: Math.round(
-                        (curTime - this.state.stopTimeOrigin) / 1000
-                      ),
-                      durationEpinephrineTime: Math.round(
-                        (curTime - this.state.epinephrineTimeOrigin) / 1000
-                      ),
-                      epinephrinePercentage:
-                        (this.state.durationEpinephrineTime / 180) * 100,
-                    });
-                  }
+                  // if (
+                  //   this.props.isAlive === false ||
+                  //   this.props.isROSC === true
+                  // ) {
+                  //   curTime = this.props.deadTime;
+                  //   this.setState({
+                  //     currentTime: curTime,
+                  //     durationTime: Math.round(
+                  //       (curTime - this.state.startTimeOrigin) / 1000
+                  //     ),
+                  //     durationPressTime: Math.round(
+                  //       (curTime - this.state.restartTimeOrigin) / 1000
+                  //     ),
+                  //     durationStopTime: Math.round(
+                  //       (curTime - this.state.stopTimeOrigin) / 1000
+                  //     ),
+                  //     durationEpinephrineTime: Math.round(
+                  //       (curTime - this.state.epinephrineTimeOrigin) / 1000
+                  //     ),
+                  //     epinephrinePercentage:
+                  //       (this.state.durationEpinephrineTime / 180) * 100,
+                  //   });
+                  // }
 
                   // Epinephrine progress bar color change
                   if (
