@@ -200,8 +200,8 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                marginRight: 5,
-                width: "15.1vw",
+                marginRight: 15,
+                width: "14.9vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 // boxShadow: shadowValues,
@@ -227,8 +227,8 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                marginRight: 5,
-                width: "15vw",
+                marginRight: 15,
+                width: "14.9vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
@@ -259,7 +259,7 @@ class Center extends Component {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "15.1vw",
+                width: "14.9vw",
                 height: "20vh",
                 backgroundColor: "#3f5061",
                 color: "white",
@@ -404,7 +404,7 @@ class Center extends Component {
               height: "9.5vh",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: 5,
+              marginTop: 15,
               backgroundColor: "#3f5061",
               // boxShadow: shadowValues,
             }}
@@ -447,6 +447,7 @@ class Center extends Component {
               width: "45.5vw",
               height: "12vh",
               padding: 10,
+              marginTop:5,
               marginBottom: 5,
               backgroundColor: "#3f5061",
               // boxShadow: shadowValues,
@@ -488,6 +489,8 @@ class Center extends Component {
               strokeColor={this.state.epiColor}
               type={"line"}
               strokeWidth={`2vw`}
+              size={20}
+              style={{width:"44vw"}}
             />
           </div>
           <div style={{ display: "flex" }}>
@@ -498,9 +501,10 @@ class Center extends Component {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 padding: 30,
-                marginRight: 5,
-                height: "38vh",
-                width: "22.7vw",
+                marginRight: 15,
+                marginTop:10,
+                height: "41.3vh",
+                width: "22.55vw",
                 backgroundColor: this.state.circularProgress01Back,
                 // boxShadow: shadowValues,
               }}
@@ -536,8 +540,9 @@ class Center extends Component {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 padding: 30,
-                width: "22.7vw",
-                height: "38vh",
+                marginTop:10,
+                width: "22.55vw",
+                height: "41.3vh",
                 backgroundColor: this.state.circularProgress02Back,
                 // boxShadow: shadowValues,
               }}

@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("information", (obj) => {
-    // console.log("information => ", obj);
+    console.log("information => ", obj);
 
     io.emit("information", obj);
   });

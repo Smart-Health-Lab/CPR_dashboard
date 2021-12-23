@@ -15,7 +15,7 @@ class ChildProcess extends Component {
           // boxShadow: shadowValues,
         }}
       >
-        <div style={{ color: "white", fontSize: `1.2vw`, fontWeight: 500 }}>
+        <div style={{ marginLeft: 10 ,color: "white", fontSize: `1.2vw`, fontWeight: 500 }}>
           {this.props.time}
         </div>
         <ChildProcessIcon content={this.props.content} />

@@ -87,7 +87,26 @@ class App extends Component {
   // };
 
   addProcess = () => {
+    let initialHeartBeatFlag = 0;
+
     socket.on("process", (obj) => {
+      if(initialHeartBeatFlag === 0) {
+        if (initialHeartBeatFlag === 0 && obj.content === "Asystole" || obj.content === "PEA" || obj.content === "VF" || obj.content === "pVT") {
+          initialHeartBeatFlag = 1;
+          let staticInfo = {};
+          staticInfo = {...this.state.staticInfo}
+          staticInfo["병원 도착 후 첫 리듬"] = obj.content;
+  
+          this.setState(prvState => ({
+              "staticInfo": staticInfo,
+              "환자번호": obj["환자번호"],
+              "이름": obj["이름"],
+              "나이": obj["나이"],
+              "성별": obj["성별"],
+          }));
+        } 
+      }
+
       if (obj.content === "CPR 시작") {
         this.setState({
           startTime: obj.time,
@@ -223,13 +242,17 @@ class App extends Component {
 
   setStaticInfo = () => {
     socket.on("information", (obj) => {
-      this.setState({
-        staticInfo: { ...obj },
-        환자번호: obj["환자번호"],
-        이름: obj["이름"],
-        나이: obj["나이"],
-        성별: obj["성별"],
-      });
+      let staticInfo = {};
+      staticInfo = {...this.state.staticInfo}
+      staticInfo[Object.keys(obj)[0]] = Object.values(obj)[0];
+
+      this.setState(prvState => ({
+          "staticInfo": staticInfo,
+          "환자번호": obj["환자번호"],
+          "이름": obj["이름"],
+          "나이": obj["나이"],
+          "성별": obj["성별"],
+      }));
     });
   };
 
@@ -244,7 +267,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log("App.js 렌더링 ", this.state);
+    console.log("App.js 렌더링 ", this.state);
 
     return (
       <Layout style={{ height: "100vh", width: "100vw" }}>
@@ -349,7 +372,7 @@ class App extends Component {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "10vh",
+            height: "8vh",
             // width: "100vw",
             textAlign: "center",
             backgroundColor: "#292a2d",

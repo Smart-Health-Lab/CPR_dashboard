@@ -34,6 +34,7 @@ class Process extends Component {
           width: "33vw",
           height: "86vh",
           backgroundColor: "#292a2d",
+          marginLeft: -21
         }}
         ref={this.scrollRef}
       >

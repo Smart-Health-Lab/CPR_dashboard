@@ -31,7 +31,7 @@ class Information extends Component {
       "Bystander CPR": nextProps.staticInfo["bystanderCPR"],
       "발생 장소": nextProps.staticInfo["발생 장소"],
       Airway: nextProps.staticInfo["Airway"],
-      "병원 도착 후 첫 리듬": nextProps.staticInfo["병원 도착 후 심전도 리듬"],
+      "병원 도착 후 첫 리듬": nextProps.staticInfo["병원 도착 후 첫 리듬"],
       // 재세동: nextProps.staticInfo["재세동"],
       // nonSustainedROSC: nextProps.staticInfo["nonSustainedROSC"],
     });
@@ -64,7 +64,7 @@ class Information extends Component {
               >
                 <div
                   style={{
-                    marginLeft: 5,
+                    marginLeft: 20,
                     // marginTop: 10,
                     marginRight: 5,
                     width: "12vw",
@@ -78,11 +78,11 @@ class Information extends Component {
               <td>
                 <div
                   style={{
-                    marginLeft: 5,
+                    marginLeft:20,
                     marginTop: 10,
                     marginRight: 5,
                     width: "10vw",
-                    fontSize: `1vw`,
+                    fontSize: `1.4vw`,
                     color: "white",
                   }}
                 >
